@@ -8,7 +8,48 @@ import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  const loggedInIcons = <>{currentUser?.username}</>
+
+  const addPostIcon = (
+    <NavLink
+    to="/posts/create"
+    className={styles.NavLink}
+    activeClassName={styles.Active}
+  >
+    <i className="fa-solid fa-plus"></i>Add Post
+  </NavLink>
+  )
+
+  const loggedInIcons = (
+  <>
+  <NavLink
+        to="/feed"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i className="fa-solid fa-bars-staggered"></i>Feed
+      </NavLink>
+      <NavLink
+        to="/bookmarked"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-bookmark"></i>Bookmarks
+      </NavLink>
+      <NavLink
+        to="/"
+        className={styles.NavLink}
+        onClick={()=>{}}
+      >
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+      </NavLink>
+      <NavLink
+        to={`/profiles/${currentUser?.profile_id}`}
+        className={styles.NavLink}
+        onClick={()=>{}}
+      >
+        <img src={currentUser?.profile_image} />
+      </NavLink>
+  </>)
   const loggedOutIcons = (
     <>
       <NavLink
@@ -36,6 +77,7 @@ const NavBar = () => {
             <img src={pflogo} alt="logo" height="50" />
           </Navbar.Brand>
         </NavLink>
+        { currentUser && addPostIcon}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
