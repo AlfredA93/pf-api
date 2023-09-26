@@ -4,11 +4,25 @@ import pflogo from "../assets/pflogo.PNG";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const addPostIcon = (
     <NavLink
@@ -36,7 +50,7 @@ const NavBar = () => {
       >
         <i class="fa-solid fa-bookmark"></i>Bookmarks
       </NavLink>
-      <NavLink to="/" className={styles.NavLink} onClick={() => {}}>
+      <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
         <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
       </NavLink>
       <NavLink
