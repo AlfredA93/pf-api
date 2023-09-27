@@ -6,23 +6,45 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-import Upload from "../../assets/upload-icon.png";
+import Upload from "../../assets/upload-icon-1.png";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
 
 function PostCreateForm() {
-
   const [errors, setErrors] = useState({});
-
 
   const textFields = (
     <div className="text-center">
-      {/* Add your form fields here */}
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control type="text" name="title" />
+      </Form.Group>
+      <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Label>Travel Type</Form.Label>
+        <Form.Control as="select">
+          <option value="bicycle">Bicycle</option>
+          <option value="boat">Boat</option>
+          <option value="foot">By Foot</option>
+          <option value="car">Combustion Engine Car</option>
+          <option value="electric">Electric Car</option>
+          <option value="multiple">Multiple</option>
+          <option value="other">Other</option>
+          <option value="plane">Plane</option>
+          <option value="train">Train</option>
+        </Form.Control>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Summary</Form.Label>
+        <Form.Control type="text" name="summary" />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control as="textarea" name="content" rows={4}/>
+      </Form.Group>
 
-    
-    
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => {}}
@@ -43,14 +65,15 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  ASSET
-                </Form.Label>
-
+              <Form.Label
+                className="d-flex justify-content-center"
+                htmlFor="image-upload"
+              >
+                <Asset
+                  src={Upload}
+                  message="Tap or click the icon to upload an image"
+                />
+              </Form.Label>
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
