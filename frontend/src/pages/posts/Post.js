@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -21,31 +22,48 @@ const Post = (props) => {
     travel,
     updated_at,
     postPage,
+    setPosts,
   } = props;
 
-//   let updatedTravel;
-//     if (travel === 'bicycle'){
-//         updatedTravel = 'Bicycle'
-//     } else if (travel === 'boat'){
-//         updatedTravel = 'Boat'
-//     } else if (travel === 'foot'){
-//         updatedTravel = 'By Foot'
-//     } else if (travel === 'car'){
-//         updatedTravel = 'Combustion Engine Car'
-//     } else if (travel === 'electric'){
-//         updatedTravel = 'Electric Car'
-//     } else if (travel === 'multiple'){
-//         updatedTravel = 'Multiple'
-//     } else if (travel === 'other'){
-//         updatedTravel = 'Other'
-//     } else if (travel === 'plane'){
-//         updatedTravel = 'Plane'
-//     } else if (travel === 'train'){
-//         updatedTravel = 'Train'
-//     }
+  //   let updatedTravel;
+  //     if (travel === 'bicycle'){
+  //         updatedTravel = 'Bicycle'
+  //     } else if (travel === 'boat'){
+  //         updatedTravel = 'Boat'
+  //     } else if (travel === 'foot'){
+  //         updatedTravel = 'By Foot'
+  //     } else if (travel === 'car'){
+  //         updatedTravel = 'Combustion Engine Car'
+  //     } else if (travel === 'electric'){
+  //         updatedTravel = 'Electric Car'
+  //     } else if (travel === 'multiple'){
+  //         updatedTravel = 'Multiple'
+  //     } else if (travel === 'other'){
+  //         updatedTravel = 'Other'
+  //     } else if (travel === 'plane'){
+  //         updatedTravel = 'Plane'
+  //     } else if (travel === 'train'){
+  //         updatedTravel = 'Train'
+  //     }
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/api/likes/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -66,7 +84,9 @@ const Post = (props) => {
       </Link>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {travel && <Card.Title className="text-center">Travel Type: {travel}</Card.Title>}
+        {travel && (
+          <Card.Title className="text-center">Travel Type: {travel}</Card.Title>
+        )}
         {summary && <Card.Text className="text-center">{summary}</Card.Text>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
@@ -78,11 +98,11 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
+            <span onClick={handleLike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleLike}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
