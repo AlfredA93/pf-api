@@ -82,6 +82,38 @@ const Post = (props) => {
     }
   };
 
+  const handleBookmark = async () => {
+    try {
+      const { data } = await axiosRes.post("/api/bookmarks/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, bookmark_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnbookmark = async () => {
+    try {
+      await axiosRes.delete(`/api/bookmarks/${bookmark_id}`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, bookmark_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -145,11 +177,11 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : bookmark_id ? (
-            <span onClick={"handleUnbookmark"}>
+            <span onClick={handleUnbookmark}>
               <i className={`fas fa-bookmark ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={"handleBookmark"}>
+            <span onClick={handleBookmark}>
               <i className={`far fa-bookmark ${styles.HeartOutline}`} />
             </span>
           ) : (
