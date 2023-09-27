@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import pflogo from "../assets/pflogo.PNG";
 import styles from "../styles/NavBar.module.css";
@@ -10,24 +10,13 @@ import {
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const [expanded, setExpanded] = useState(false);
-  const ref = useRef(null);
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setExpanded(false);
-      }
-    };
-    document.addEventListener("mouseup", handleClickOutside);
-    return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
-    };
-  }, [ref]);
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -62,10 +51,10 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-bookmark"></i>Bookmarks
+        <i className="fa-solid fa-bookmark"></i>Bookmarks
       </NavLink>
       <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+        <i className="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
