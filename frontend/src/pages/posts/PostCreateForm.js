@@ -16,15 +16,42 @@ import Asset from "../../components/Asset";
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
+  const [postData, setPostData] = useState({
+    title: "",
+    travel: "",
+    summary: "",
+    content: "",
+    image: "",
+  });
+
+  const { title, travel, summary, content, image } = postData;
+
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const textFields = (
     <div className="text-center">
       <Form.Group>
         <Form.Label>Title</Form.Label>
-        <Form.Control type="text" name="title" />
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Travel Type</Form.Label>
-        <Form.Control as="select">
+        <Form.Control
+          as="select"
+          name="travel"
+          value={travel}
+          onChange={handleChange}
+        >
           <option value="bicycle">Bicycle</option>
           <option value="boat">Boat</option>
           <option value="foot">By Foot</option>
@@ -38,11 +65,22 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Summary</Form.Label>
-        <Form.Control type="text" name="summary" />
+        <Form.Control
+          type="text"
+          name="summary"
+          value={summary}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Content</Form.Label>
-        <Form.Control as="textarea" name="content" rows={4}/>
+        <Form.Control
+          as="textarea"
+          name="content"
+          rows={4}
+          value={content}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <Button
