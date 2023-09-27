@@ -12,7 +12,7 @@ import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -21,13 +21,13 @@ function PostCreateForm() {
 
   const [postData, setPostData] = useState({
     title: "",
-    travel: "",
     summary: "",
     content: "",
     image: "",
+    travel: "",
   });
 
-  const { title, travel, summary, content, image } = postData;
+  const { title, summary, content, image, travel } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -172,6 +172,11 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
