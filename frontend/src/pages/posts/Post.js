@@ -26,26 +26,33 @@ const Post = (props) => {
     setPosts,
   } = props;
 
-  //   let updatedTravel;
-  //     if (travel === 'bicycle'){
-  //         updatedTravel = 'Bicycle'
-  //     } else if (travel === 'boat'){
-  //         updatedTravel = 'Boat'
-  //     } else if (travel === 'foot'){
-  //         updatedTravel = 'By Foot'
-  //     } else if (travel === 'car'){
-  //         updatedTravel = 'Combustion Engine Car'
-  //     } else if (travel === 'electric'){
-  //         updatedTravel = 'Electric Car'
-  //     } else if (travel === 'multiple'){
-  //         updatedTravel = 'Multiple'
-  //     } else if (travel === 'other'){
-  //         updatedTravel = 'Other'
-  //     } else if (travel === 'plane'){
-  //         updatedTravel = 'Plane'
-  //     } else if (travel === 'train'){
-  //         updatedTravel = 'Train'
-  //     }
+  const travelCategory = {
+    bicycle: "Bicycle",
+    boat: "Boat",
+    foot: "By Foot",
+    car: "Combustion Engine Car",
+    electric: "Electric Car",
+    multiple: "Multiple",
+    other: "Other",
+    plane: "Plane",
+    train: "Train",
+  };
+
+  const travelIcons = {
+    bicycle: <i className="fa-solid fa-person-biking" />,
+    boat: <i className="fa-solid fa-sailboat" />,
+    foot: <i className="fa-solid fa-shoe-prints" />,
+    car: <i className="fa-solid fa-car-side" />,
+    electric: <i className="fa-solid fa-bolt" />,
+    multiple: <i className="fa-solid fa-truck-plane" />,
+    other: <i className="fa-brands fa-fly" />,
+    plane: <i className="fa-solid fa-plane-departure" />,
+    train: <i className="fa-solid fa-train-subway" />,
+  };
+
+  const travelIcon = travelIcons[travel];
+
+  const updatedTravel = travelCategory[travel];
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -88,9 +95,7 @@ const Post = (props) => {
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, bookmark_id: data.id }
-            : post;
+          return post.id === id ? { ...post, bookmark_id: data.id } : post;
         }),
       }));
     } catch (err) {
@@ -104,9 +109,7 @@ const Post = (props) => {
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, bookmark_id: null }
-            : post;
+          return post.id === id ? { ...post, bookmark_id: null } : post;
         }),
       }));
     } catch (err) {
@@ -134,7 +137,9 @@ const Post = (props) => {
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {travel && (
-          <Card.Title className="text-center">Travel Type: {travel}</Card.Title>
+          <Card.Title className="text-center">
+            Travel Type: {updatedTravel} {travelIcon}
+          </Card.Title>
         )}
         {summary && <Card.Text className="text-center">{summary}</Card.Text>}
         {content && <Card.Text>{content}</Card.Text>}
