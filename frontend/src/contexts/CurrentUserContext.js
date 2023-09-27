@@ -15,7 +15,7 @@ export const CurrentUserProvider = ({ children }) => {
 
   const handleMount = async () => {
     try {
-      const { data } = await axiosRes.get("http://localhost:3000/dj-rest-auth/user/"); // Change back to "dj-rest-auth/user/" later
+      const { data } = await axiosRes.get("dj-rest-auth/user/"); // Change back to "dj-rest-auth/user/" later
       setCurrentUser(data);
     } catch (err) {
       console.log(err);
