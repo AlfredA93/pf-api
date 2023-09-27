@@ -23,6 +23,27 @@ const Post = (props) => {
     postPage,
   } = props;
 
+//   let updatedTravel;
+//     if (travel === 'bicycle'){
+//         updatedTravel = 'Bicycle'
+//     } else if (travel === 'boat'){
+//         updatedTravel = 'Boat'
+//     } else if (travel === 'foot'){
+//         updatedTravel = 'By Foot'
+//     } else if (travel === 'car'){
+//         updatedTravel = 'Combustion Engine Car'
+//     } else if (travel === 'electric'){
+//         updatedTravel = 'Electric Car'
+//     } else if (travel === 'multiple'){
+//         updatedTravel = 'Multiple'
+//     } else if (travel === 'other'){
+//         updatedTravel = 'Other'
+//     } else if (travel === 'plane'){
+//         updatedTravel = 'Plane'
+//     } else if (travel === 'train'){
+//         updatedTravel = 'Train'
+//     }
+
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
