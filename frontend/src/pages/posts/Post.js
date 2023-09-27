@@ -24,24 +24,33 @@ const Post = (props) => {
   } = props;
 
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner
+  const is_owner = currentUser?.username === owner;
 
-  return <Card className={styles.Post}>
-    <Card.Body>
+  return (
+    <Card className={styles.Post}>
+      <Card.Body>
         <Media className="align-items-center justify-content-between">
-            <Link to={`/profiles/${profile_id}`}>
-                <Avatar src={profile_image} height={55}/>
-                {owner}
-            </Link>
-            <div className="d-flex align-items-center">
-                <span>{updated_at}</span>
-                {is_owner && postPage && "..."}
-            </div>
-
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} height={55} />
+            {owner}
+          </Link>
+          <div className="d-flex align-items-center">
+            <span>{updated_at}</span>
+            {is_owner && postPage && "..."}
+          </div>
         </Media>
-    </Card.Body>
-
-  </Card>
+      </Card.Body>
+      <Link to={`/posts/${id}`}>
+        <Card.Img src={image} alt={title} />
+      </Link>
+      <Card.Body>
+        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {travel && <Card.Title className="text-center">Travel Type: {travel}</Card.Title>}
+        {summary && <Card.Text className="text-center">{summary}</Card.Text>}
+        {content && <Card.Text>{content}</Card.Text>}
+      </Card.Body>
+    </Card>
+  );
 };
 
 export default Post;
