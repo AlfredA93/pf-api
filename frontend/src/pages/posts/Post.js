@@ -15,6 +15,7 @@ const Post = (props) => {
     like_id,
     likes_count,
     owner,
+    bookmark_id,
     profile_id,
     profile_image,
     summary,
@@ -72,7 +73,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: post.likes_count - 1, like_id: null}
+            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
             : post;
         }),
       }));
@@ -130,10 +131,35 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
+          {/* Comments Icon */}
           <Link to={`/posts/${id}`}>
             <i className="fa-solid fa-comments" />
           </Link>
           {comments_count}
+          {/* Bookmark Icon */}
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't bookmark you're own post...</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          ) : bookmark_id ? (
+            <span onClick={"handleUnbookmark"}>
+              <i className={`fas fa-bookmark ${styles.Heart}`} />
+            </span>
+          ) : currentUser ? (
+            <span onClick={"handleBookmark"}>
+              <i className={`far fa-bookmark ${styles.HeartOutline}`} />
+            </span>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to bookmark a post...</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          )}
         </div>
       </Card.Body>
     </Card>
