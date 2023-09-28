@@ -52,7 +52,6 @@ class PostSerializer(serializers.ModelSerializer):
             like = Like.objects.filter(
                 owner=user, post=obj
             ).first()
-            # print(following)
             return like.id if like else None
         return None
 
@@ -75,3 +74,4 @@ class PostSerializer(serializers.ModelSerializer):
             'comments_count', 'likes_count', 'created_at', 'updated_at',
             'bookmark_id',
         ]
+        extra_kwargs = {'image': {'required': False}}
