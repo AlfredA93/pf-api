@@ -57,7 +57,6 @@ function PostCreateForm() {
     formData.append("summary", summary);
     formData.append("content", content);
     if (imageInput.current.files[0]) {
-        console.log(imageInput.current);
       formData.append("image", imageInput.current.files[0]);
     }
     formData.append("travel", travel);
