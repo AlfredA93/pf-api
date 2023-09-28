@@ -47,7 +47,7 @@ const NavBar = () => {
         <i className="fa-solid fa-bars-staggered"></i>Feed
       </NavLink>
       <NavLink
-        to="/bookmarked"
+        to="/bookmarks"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
