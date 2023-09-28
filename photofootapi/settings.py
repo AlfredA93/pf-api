@@ -116,8 +116,10 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CLIENT_ORIGIN')
+    os.environ.get('CLIENT_ORIGIN'),
 ]
+
+# CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
