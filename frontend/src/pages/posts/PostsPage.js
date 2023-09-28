@@ -13,6 +13,7 @@ import Post from "./Post";
 
 import NoResults from "../../assets/search-icon.png";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -24,7 +25,9 @@ function PostsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/api/posts/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(
+          `/api/posts/?${filter}search=${query}`
+        );
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
@@ -33,10 +36,10 @@ function PostsPage({ message, filter = "" }) {
     };
     setHasLoaded(false);
     const timer = setTimeout(() => {
-        fetchPosts();
+      fetchPosts();
     }, 1000);
     return () => {
-        clearTimeout(timer);
+      clearTimeout(timer);
     };
   }, [filter, query, pathname]);
 
@@ -61,9 +64,15 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              posts.results.map((post) => (
-                <Post key={post.id} {...post} setPosts={setPosts} />
-              ))
+              <InfiniteScroll
+                children={posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))}
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => {}}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
