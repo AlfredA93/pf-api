@@ -56,7 +56,10 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("summary", summary);
     formData.append("content", content);
-    formData.append("image", imageInput.current.files[0]);
+    if (imageInput.current.files[0]) {
+        console.log(imageInput.current);
+      formData.append("image", imageInput.current.files[0]);
+    }
     formData.append("travel", travel);
 
     try {
@@ -82,10 +85,10 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Travel Type</Form.Label>
         <Form.Control
@@ -106,10 +109,10 @@ function PostCreateForm() {
         </Form.Control>
       </Form.Group>
       {errors?.travel?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Summary</Form.Label>
         <Form.Control
@@ -120,10 +123,10 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors?.summary?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
@@ -135,10 +138,10 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
