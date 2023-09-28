@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -27,32 +27,9 @@ const Post = (props) => {
     setPosts,
   } = props;
 
-  const travelCategory = {
-    bicycle: "Bicycle",
-    boat: "Boat",
-    foot: "By Foot",
-    car: "Combustion Engine Car",
-    electric: "Electric Car",
-    multiple: "Multiple",
-    other: "Other",
-    plane: "Plane",
-    train: "Train",
-  };
-
-  const travelIcons = {
-    bicycle: <i className="fa-solid fa-person-biking" />,
-    boat: <i className="fa-solid fa-sailboat" />,
-    foot: <i className="fa-solid fa-shoe-prints" />,
-    car: <i className="fa-solid fa-car-side" />,
-    electric: <i className="fa-solid fa-bolt" />,
-    multiple: <i className="fa-solid fa-truck-plane" />,
-    other: <i className="fa-brands fa-fly" />,
-    plane: <i className="fa-solid fa-plane-departure" />,
-    train: <i className="fa-solid fa-train-subway" />,
-  };
-
-  const travelIcon = travelIcons[travel];
-  const updatedTravel = travelCategory[travel];
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
+  const history = useHistory();
 
   // const [isPost, setIsPost] = useState(false);
 
@@ -63,8 +40,9 @@ const Post = (props) => {
   //     setIsPost(true);
   //   }}, [pathname])
 
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
+  const handleEdit = () => {
+    history.push(`/posts/${id}/edit`);
+  };
 
   const handleLike = async () => {
     try {
@@ -126,6 +104,33 @@ const Post = (props) => {
     }
   };
 
+  const travelCategory = {
+    bicycle: "Bicycle",
+    boat: "Boat",
+    foot: "By Foot",
+    car: "Combustion Engine Car",
+    electric: "Electric Car",
+    multiple: "Multiple",
+    other: "Other",
+    plane: "Plane",
+    train: "Train",
+  };
+
+  const travelIcons = {
+    bicycle: <i className="fa-solid fa-person-biking" />,
+    boat: <i className="fa-solid fa-sailboat" />,
+    foot: <i className="fa-solid fa-shoe-prints" />,
+    car: <i className="fa-solid fa-car-side" />,
+    electric: <i className="fa-solid fa-bolt" />,
+    multiple: <i className="fa-solid fa-truck-plane" />,
+    other: <i className="fa-brands fa-fly" />,
+    plane: <i className="fa-solid fa-plane-departure" />,
+    train: <i className="fa-solid fa-train-subway" />,
+  };
+
+  const travelIcon = travelIcons[travel];
+  const updatedTravel = travelCategory[travel];
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -136,7 +141,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && <MoreDropdown />}
+            {is_owner && postPage && <MoreDropdown handleEdit={handleEdit} />}
           </div>
         </Media>
       </Card.Body>
