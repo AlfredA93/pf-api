@@ -25,20 +25,12 @@ const Post = (props) => {
     updated_at,
     postPage,
     setPosts,
+    isPost,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-
-  // const [isPost, setIsPost] = useState(false);
-
-  //   const {pathname} = useLocation()
-
-  //   useEffect((id) => {
-  //     if ({id} in pathname){
-  //     setIsPost(true);
-  //   }}, [pathname])
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -170,7 +162,7 @@ const Post = (props) => {
           </Card.Title>
         )}
         {summary && <Card.Text className="text-center">{summary}</Card.Text>}
-        {content && <Card.Text>{content}</Card.Text>}
+        { isPost && content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
