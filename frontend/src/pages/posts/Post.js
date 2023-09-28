@@ -51,8 +51,16 @@ const Post = (props) => {
   };
 
   const travelIcon = travelIcons[travel];
-
   const updatedTravel = travelCategory[travel];
+
+  // const [isPost, setIsPost] = useState(false);
+
+  //   const {pathname} = useLocation()
+
+  //   useEffect((id) => {
+  //     if ({id} in pathname){
+  //     setIsPost(true);
+  //   }}, [pathname])
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -179,7 +187,7 @@ const Post = (props) => {
               placement="top"
               overlay={<Tooltip>You can't bookmark you're own post...</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="far fa-bookmark" />
             </OverlayTrigger>
           ) : bookmark_id ? (
             <span onClick={handleUnbookmark}>
