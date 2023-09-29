@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,17 +6,16 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-import Upload from "../../assets/upload-icon-1.png";
-
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
+
 import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
-function PostCreateForm() {
+function PostEditForm() {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -31,6 +30,23 @@ function PostCreateForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/api/posts/${id}/`);
+        const { title, summary, content, image, travel, is_owner } = data;
+
+        is_owner
+          ? setPostData({ title, summary, content, image, travel, is_owner })
+          : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setPostData({
@@ -56,14 +72,14 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("summary", summary);
     formData.append("content", content);
-    if (imageInput.current.files[0]) {
+    if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
     }
     formData.append("travel", travel);
 
     try {
-      const { data } = await axiosReq.post("/api/posts/", formData);
-      history.push(`/posts/${data.id}`);
+      await axiosReq.put(`/api/posts/${id}/`, formData);
+      history.push(`/posts/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -149,7 +165,7 @@ function PostCreateForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+        update
       </Button>
     </div>
   );
@@ -162,8 +178,6 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
-                <>
                   <figure>
                     <Image className={appStyles.Image} src={image} rounded />
                   </figure>
@@ -175,18 +189,6 @@ function PostCreateForm() {
                       Change image
                     </Form.Label>
                   </div>
-                </>
-              ) : (
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <Asset
-                    src={Upload}
-                    message="Tap or click the icon to upload an image"
-                  />
-                </Form.Label>
-              )}
               <Form.File
                 id="image-upload"
                 accept="image/*"
@@ -210,4 +212,4 @@ function PostCreateForm() {
   );
 }
 
-export default PostCreateForm;
+export default PostEditForm;
