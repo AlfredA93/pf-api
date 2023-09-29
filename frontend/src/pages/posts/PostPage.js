@@ -21,11 +21,12 @@ function PostPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }] = await Promise.all([
+        const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/api/posts/${id}`),
+          axiosReq.get(`/api/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });
-        console.log(post);
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -50,6 +51,17 @@ function PostPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
+          {comments.results.length ? (
+            comments.results.map(comment => (
+                <p key={comment.id}>
+                    {comment.owner}: {comment.content}
+                </p>
+            ))
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment on this post!</span>
+          ) : (
+            <span>No comments... to add a comment, please log in</span>
+          )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
