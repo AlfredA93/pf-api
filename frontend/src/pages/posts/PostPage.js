@@ -10,6 +10,7 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
+import Comment from "../comments/Comment";
 
 function PostPage() {
   const { id } = useParams();
@@ -52,10 +53,8 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map(comment => (
-                <p key={comment.id}>
-                    {comment.owner}: {comment.content}
-                </p>
+            comments.results.map((comment) => (
+              <Comment key={comment.id} {...comment} />
             ))
           ) : currentUser ? (
             <span>No comments yet, be the first to comment on this post!</span>
