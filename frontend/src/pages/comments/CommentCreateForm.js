@@ -19,7 +19,7 @@ function CommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/comments/", {
+      const { data } = await axiosRes.post("/api/comments/", {
         content,
         post,
       });
@@ -46,7 +46,7 @@ function CommentCreateForm(props) {
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
+            <Avatar src={profileImage} height={50}/>
           </Link>
           <Form.Control
             className={styles.Form}
