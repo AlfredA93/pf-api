@@ -1,3 +1,14 @@
 .WordBreak {
   word-break: break-all;
 }
+.FollowersGrey {
+    display: none;
+  }
+
+@media screen and (min-width: 420px) {
+  .FollowersGrey {
+    font-size: 90%;
+    color: #969696;
+    display: block
+  }
+}
