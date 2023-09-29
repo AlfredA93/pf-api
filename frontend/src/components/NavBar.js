@@ -51,10 +51,10 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-bookmark"></i>Bookmarks
+        <i className="fa-solid fa-bookmark"></i>Saved
       </NavLink>
       <NavLink to="/" className={styles.NavLink} onClick={handleSignOut}>
-        <i className="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+        <i className="fa-solid fa-arrow-right-from-bracket"></i>Log Out
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
