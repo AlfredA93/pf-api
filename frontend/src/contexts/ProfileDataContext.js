@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
+import { followHelper } from "../utils/utils";
 
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
@@ -23,47 +24,16 @@ export const ProfileDataProvider = ({ children }) => {
       });
       setProfileData((prevState) => ({
         ...prevState,
-        pageProfile: {results: prevState.pageProfiles.results.map((profile) => {
-            return profile.id === clickedProfile.id
-              ? {
-                  // Profile clicked on. Update its follows count, set following id
-                  ...profile,
-                  follower_count: profile.followers_count + 1,
-                  following_id: data.id,
-                }
-              : profile.is_owner
-              ? {
-                  // Profile of logged in user. Update their following count
-                  ...profile,
-                  following_count: profile.followers_count + 1,
-                }
-              : {
-                  // This is the other profiles in the array, return unchanged.
-                  profile,
-                };
-            }),
+        pageProfile: {
+          results: prevState.pageProfile.results.map((profile) =>
+            followHelper(profile, clickedProfile, data.id)
+          ),
         },
         popularProfiles: {
           ...prevState.popularProfiles,
-          results: prevState.popularProfiles.results.map((profile) => {
-            return profile.id === clickedProfile.id
-              ? {
-                  // Profile clicked on. Update its follows count, set following id
-                  ...profile,
-                  follower_count: profile.followers_count + 1,
-                  following_id: data.id,
-                }
-              : profile.is_owner
-              ? {
-                  // Profile of logged in user. Update their following count
-                  ...profile,
-                  following_count: profile.followers_count + 1,
-                }
-              : {
-                  // This is the other profiles in the array, return unchanged.
-                  profile,
-                };
-          }),
+          results: prevState.popularProfiles.results.map((profile) =>
+            followHelper(profile, clickedProfile, data.id)
+          ),
         },
       }));
     } catch (err) {
