@@ -118,7 +118,7 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i class="fa-solid fa-earth-africa" />Discover
+              <i className="fa-solid fa-earth-africa" />Discover
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
