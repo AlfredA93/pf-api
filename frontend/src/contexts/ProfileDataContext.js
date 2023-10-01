@@ -23,6 +23,26 @@ export const ProfileDataProvider = ({ children }) => {
       });
       setProfileData((prevState) => ({
         ...prevState,
+        pageProfile: {results: prevState.pageProfiles.results.map((profile) => {
+            return profile.id === clickedProfile.id
+              ? {
+                  // Profile clicked on. Update its follows count, set following id
+                  ...profile,
+                  follower_count: profile.followers_count + 1,
+                  following_id: data.id,
+                }
+              : profile.is_owner
+              ? {
+                  // Profile of logged in user. Update their following count
+                  ...profile,
+                  following_count: profile.followers_count + 1,
+                }
+              : {
+                  // This is the other profiles in the array, return unchanged.
+                  profile,
+                };
+            }),
+        },
         popularProfiles: {
           ...prevState.popularProfiles,
           results: prevState.popularProfiles.results.map((profile) => {
