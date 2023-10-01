@@ -5,6 +5,8 @@
 
 .NavLink {
   padding: 5px;
+  font-weight: bold;
+  color: black;
 }
 
 .Active i {
