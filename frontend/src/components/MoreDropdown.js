@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
+import btnStyles from "../styles/Button.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import { Button, Modal } from "react-bootstrap";
+import { Alert, Button, Form, Modal } from "react-bootstrap";
 import axios from "axios";
 
 // The forwardRef is important!!
@@ -74,7 +75,7 @@ export function ProfileEditDropdown({ id }) {
       await axios.post("/api/contact/", formData);
       handleClose();
     } catch (err) {
-        setErrors(err.response?.data);
+      setErrors(err.response?.data);
     }
   };
 
@@ -102,8 +103,8 @@ export function ProfileEditDropdown({ id }) {
           <i className="fas fa-key" />
           change password
         </Dropdown.Item>
-        <Dropdown.Item onClick={handleShow} aria-label="ask a question">
-          <i class="fa-regular fa-circle-question" />
+        <Dropdown.Item onClick={handleShow} aria-label="ask-question">
+          <i className="fa-regular fa-circle-question" />
           contact us
         </Dropdown.Item>
 
@@ -112,16 +113,91 @@ export function ProfileEditDropdown({ id }) {
             <Modal.Title>Contact Us</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Please share with us your query and submit below.
+            <p>
+              Please let us know what your query is and we'll be in contact with
+              you as soon as possible.
+            </p>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="name">
+                <Form.Label className="d-none">Name</Form.Label>
+                <Form.Control
+                  className={styles.Input}
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  value={name}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors.name?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+
+              <Form.Group controlId="email">
+                <Form.Label className="d-none">Email</Form.Label>
+                <Form.Control
+                  className={styles.Input}
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors.email?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                  {message}
+                </Alert>
+              ))}
+
+              <Form.Group controlId="subject">
+                <Form.Label className="d-none">Subject</Form.Label>
+                <Form.Control
+                  className={styles.Input}
+                  type="text"
+                  placeholder="Subject"
+                  name="subject"
+                  value={subject}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors.subject?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                  {message}
+                </Alert>
+              ))}
+              <Form.Group controlId="message">
+                <Form.Label className="d-none">Message</Form.Label>
+                <Form.Control
+                  className={styles.Input}
+                  type="textarea"
+                  placeholder="Message"
+                  name="message"
+                  value={message}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {errors.message?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                  {message}
+                </Alert>
+              ))}
+
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+                type="submit"
+              >
+                Submit
+              </Button>
+              {errors.non_field_errors?.map((message, idx) => (
+                <Alert key={idx} variant="warning" className="mt-3">
+                  {message}
+                </Alert>
+              ))}
+            </Form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={handleSubmit}>
-              Send
-            </Button>
-          </Modal.Footer>
         </Modal>
       </Dropdown.Menu>
     </Dropdown>
