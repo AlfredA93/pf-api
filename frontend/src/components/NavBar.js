@@ -37,7 +37,7 @@ const NavBar = () => {
       className={styles.NavLink}
       activeClassName={styles.Active}
     >
-      <i className="fa-solid fa-plus"></i>Add Post
+      <i className="fa-solid fa-plus"></i>Create
     </NavLink>
   );
 
@@ -118,7 +118,7 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
-              <i className="fa-solid fa-house"></i>Home
+              <i class="fa-solid fa-earth-africa" />Discover
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
