@@ -15,9 +15,10 @@ import {
   Alert,
 } from "react-bootstrap";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
-
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -55,7 +56,6 @@ const SignUpForm = () => {
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-
               <Form.Label className="d-none">username</Form.Label>
               <Form.Control
                 className={styles.Input}
