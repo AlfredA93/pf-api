@@ -36,7 +36,7 @@ function PostEditForm() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/api/posts/${id}/`);
+        const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, summary, content, image, travel, is_owner } = data;
 
         is_owner
@@ -79,7 +79,7 @@ function PostEditForm() {
     formData.append("travel", travel);
 
     try {
-      await axiosReq.put(`/api/posts/${id}/`, formData);
+      await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
       console.log(err);

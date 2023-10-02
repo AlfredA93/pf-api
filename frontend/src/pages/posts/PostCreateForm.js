@@ -65,7 +65,7 @@ function PostCreateForm() {
     formData.append("travel", travel);
 
     try {
-      const { data } = await axiosReq.post("/api/posts/", formData);
+      const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);

@@ -41,7 +41,7 @@ const Post = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/api/posts/${id}/`);
+      await axiosRes.delete(`/posts/${id}/`);
       history.goBack();
     } catch (err) {
       console.log(err);
@@ -50,7 +50,7 @@ const Post = (props) => {
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post("/api/likes/", { post: id });
+      const { data } = await axiosRes.post("/likes/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -66,7 +66,7 @@ const Post = (props) => {
 
   const handleUnlike = async () => {
     try {
-      await axiosRes.delete(`/api/likes/${like_id}`);
+      await axiosRes.delete(`/likes/${like_id}`);
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -82,7 +82,7 @@ const Post = (props) => {
 
   const handleBookmark = async () => {
     try {
-      const { data } = await axiosRes.post("/api/bookmarks/", { post: id });
+      const { data } = await axiosRes.post("/bookmarks/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -96,7 +96,7 @@ const Post = (props) => {
 
   const handleUnbookmark = async () => {
     try {
-      await axiosRes.delete(`/api/bookmarks/${bookmark_id}`);
+      await axiosRes.delete(`/bookmarks/${bookmark_id}`);
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {

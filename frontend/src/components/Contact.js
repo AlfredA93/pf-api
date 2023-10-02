@@ -40,7 +40,7 @@ const Contact = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/api/contact/", formData);
+      await axios.post("/contact/", formData);
       handleClose();
       clearContactForm();
     } catch (err) {
