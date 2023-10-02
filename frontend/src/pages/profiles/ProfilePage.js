@@ -104,7 +104,7 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
       </Row>
     </>
   );
