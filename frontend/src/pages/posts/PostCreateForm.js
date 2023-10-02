@@ -91,7 +91,7 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-      <Form.Group controlId="exampleForm.ControlSelect1">
+      <Form.Group>
         <Form.Label>Travel Type</Form.Label>
         <Form.Control
           as="select"
