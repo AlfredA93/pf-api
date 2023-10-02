@@ -2,7 +2,7 @@ import React from "react";
 import Navbar  from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import pflogo from "../assets/pflogo.PNG";
+import pflogo from "../assets/pf-logo-2.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
