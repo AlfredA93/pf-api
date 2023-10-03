@@ -8,6 +8,7 @@ import styles from "../styles/MoreDropdown.module.css";
 
 const Contact = (props) => {
   const { setShow, show } = props;
+  const [sending, setSending] = useState(false);
 
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -38,6 +39,7 @@ const Contact = (props) => {
   };
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     try {
       await axios.post("/contact/", formData);
@@ -46,6 +48,7 @@ const Contact = (props) => {
     } catch (err) {
       setErrors(err.response?.data);
     }
+    setSending(false);
   };
 
   return (
@@ -130,6 +133,7 @@ const Contact = (props) => {
             <Button
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
+              disabled={sending}
             >
               Submit
             </Button>
