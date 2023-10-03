@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-import Contact from "./Contact";
+
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -48,8 +48,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
+
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
@@ -74,11 +73,6 @@ export function ProfileEditDropdown({ id }) {
           <i className="fas fa-key" />
           change password
         </Dropdown.Item>
-        <Dropdown.Item onClick={handleShow} aria-label="ask-question">
-          <i className="fa-regular fa-circle-question" />
-          contact us
-        </Dropdown.Item>
-        <Contact setShow={setShow} show={show} />
       </Dropdown.Menu>
     </Dropdown>
   );
