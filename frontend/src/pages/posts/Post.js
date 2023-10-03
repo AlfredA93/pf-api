@@ -26,7 +26,6 @@ const Post = (props) => {
     title,
     travel,
     updated_at,
-    postPage,
     setPosts,
     isPost,
   } = props;
@@ -145,7 +144,7 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && (
+            {is_owner && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
