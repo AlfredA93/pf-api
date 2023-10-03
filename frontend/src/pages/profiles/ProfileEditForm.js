@@ -24,6 +24,7 @@ const ProfileEditForm = () => {
   const { id } = useParams();
   const history = useHistory();
   const imageFile = useRef();
+  const [sending, setSending] = useState(false);
 
   const [profileData, setProfileData] = useState({
     name: "",
@@ -61,6 +62,7 @@ const ProfileEditForm = () => {
   };
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
@@ -81,6 +83,7 @@ const ProfileEditForm = () => {
       console.log(err);
       setErrors(err.response?.data);
     }
+    setSending(false);
   };
 
   const textFields = (
@@ -107,7 +110,11 @@ const ProfileEditForm = () => {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        type="submit"
+        disabled={sending}
+      >
         save
       </Button>
     </>

@@ -21,6 +21,8 @@ import { useRedirect } from "../../hooks/useRedirect";
 function PostCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
+  // Disable the submit button once clicked.
+  const [sending, setSending] = useState(false);
 
   const [postData, setPostData] = useState({
     title: "",
@@ -53,6 +55,7 @@ function PostCreateForm() {
   };
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     const formData = new FormData();
 
@@ -73,6 +76,7 @@ function PostCreateForm() {
         setErrors(err.response?.data);
       }
     }
+    setSending(false);
   };
 
   const textFields = (
@@ -151,7 +155,11 @@ function PostCreateForm() {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        type="submit"
+        disabled={sending}
+      >
         create
       </Button>
     </div>

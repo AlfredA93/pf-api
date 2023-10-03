@@ -20,6 +20,7 @@ import appStyles from "../../App.module.css";
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
+  const [sending, setSending] = useState(false);
 
   const history = useHistory();
   const { id } = useParams();
@@ -36,6 +37,7 @@ const UsernameForm = () => {
   }, [currentUser, history, id]);
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     try {
       await axiosRes.put("/dj-rest-auth/user/", {
@@ -50,6 +52,7 @@ const UsernameForm = () => {
       console.log(err);
       setErrors(err.response?.data);
     }
+    setSending(false);
   };
 
   return (
@@ -80,6 +83,7 @@ const UsernameForm = () => {
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               type="submit"
+              disabled={sending}
             >
               save
             </Button>

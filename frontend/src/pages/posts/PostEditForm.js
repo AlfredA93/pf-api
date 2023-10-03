@@ -18,6 +18,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
+  const [sending, setSending] = useState(false);
 
   const [postData, setPostData] = useState({
     title: "",
@@ -67,6 +68,7 @@ function PostEditForm() {
   };
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     const formData = new FormData();
 
@@ -87,6 +89,7 @@ function PostEditForm() {
         setErrors(err.response?.data);
       }
     }
+    setSending(false);
   };
 
   const textFields = (
@@ -165,7 +168,11 @@ function PostEditForm() {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        type="submit"
+        disabled={sending}
+      >
         update
       </Button>
     </div>
@@ -179,17 +186,17 @@ function PostEditForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change image
-                    </Form.Label>
-                  </div>
+              <figure>
+                <Image className={appStyles.Image} src={image} rounded />
+              </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="image-upload"
+                >
+                  Change image
+                </Form.Label>
+              </div>
               <Form.File
                 id="image-upload"
                 accept="image/*"

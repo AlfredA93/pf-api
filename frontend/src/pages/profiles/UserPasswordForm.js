@@ -18,6 +18,7 @@ const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
   const currentUser = useCurrentUser();
+  const [sending, setSending] = useState(false);
 
   const [userData, setUserData] = useState({
     new_password1: "",
@@ -42,6 +43,7 @@ const UserPasswordForm = () => {
   }, [currentUser, history, id]);
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
@@ -96,6 +98,7 @@ const UserPasswordForm = () => {
             <Button
               type="submit"
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              disabled={sending}
             >
               save
             </Button>

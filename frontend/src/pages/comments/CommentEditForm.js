@@ -9,12 +9,14 @@ function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
+  const [sending, setSending] = useState(false);
 
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     try {
       await axiosRes.put(`/comments/${id}/`, {
@@ -36,6 +38,7 @@ function CommentEditForm(props) {
     } catch (err) {
       console.log(err);
     }
+    setSending(false);
   };
 
   return (
@@ -59,7 +62,7 @@ function CommentEditForm(props) {
         </button>
         <button
           className={styles.Button}
-          disabled={!content.trim()}
+          disabled={!content.trim() || sending}
           type="submit"
         >
           update
