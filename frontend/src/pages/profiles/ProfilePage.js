@@ -75,15 +75,15 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-              <div>{profile?.posts_count}</div>
+              <div><strong>{profile?.posts_count}</strong></div>
               <div>posts</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.followers_count}</div>
+              <div><strong>{profile?.followers_count}</strong></div>
               <div>followers</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.following_count}</div>
+              <div><strong>{profile?.following_count}</strong></div>
               <div>following</div>
             </Col>
           </Row>
