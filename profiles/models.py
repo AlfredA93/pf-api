@@ -7,7 +7,7 @@ class Profile(models.Model):
     """Model structure for each profile"""
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=250, blank=True)
     bio = models.TextField(blank=True)
     image = models.ImageField(
