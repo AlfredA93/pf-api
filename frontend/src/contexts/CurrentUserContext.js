@@ -19,7 +19,7 @@ export const CurrentUserProvider = ({ children }) => {
       const { data } = await axiosRes.get("dj-rest-auth/user/"); // Change back to "dj-rest-auth/user/" later
       setCurrentUser(data);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
