@@ -30,7 +30,7 @@ class Post(models.Model):
         max_length=30, choices=CATEGORIES, default='multiple'
         )
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         """Data Structuring"""
