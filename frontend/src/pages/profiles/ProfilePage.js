@@ -25,6 +25,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/search-icon.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import Contact from "../../components/Contact";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -35,6 +36,8 @@ function ProfilePage() {
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +62,7 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-    {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -105,6 +108,16 @@ function ProfilePage() {
             ))}
         </Col>
         {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
+        {currentUser && is_owner && (
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Bright}`}
+            onClick={handleShow}
+            aria-label="ask-question"
+          >
+            Contact Us
+            <Contact setShow={setShow} show={show} />
+          </Button>
+        )}
       </Row>
     </>
   );
