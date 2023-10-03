@@ -59,7 +59,7 @@ const Contact = (props) => {
         </Modal.Header>
         <Modal.Body>
           <p>
-            Please let us know what your query is and we'll be in contact with
+            Please let us know your question and we'll be in contact with
             you as soon as possible.
           </p>
           <Form onSubmit={handleSubmit}>
