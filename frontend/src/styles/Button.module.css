@@ -68,3 +68,8 @@
   color: #000000;
   font-weight: bold;
 }
+
+.Bright:hover {
+    background-color: #242a3d;
+    color: aliceblue;
+}
