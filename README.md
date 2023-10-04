@@ -21,11 +21,11 @@ PhotoFootprint is a photo based social media platform for travellers. It's core 
   - [Media](#media-fe)
 - [Backend](#backend)
   - [Design](#design-be)
-    - [ERD](#erd)
     - [Agile](#agile-be)
-    - [Tasks](#tasks)
     - [Project Goal](#goals-be)
+    - [Tasks](#tasks)
     - [Structure](#structure-be)
+    - [ERD](#erd)
   - [Deployment](#deploy-be)
   - [Testing](TESTING.md)
   - [Libraries Used](#libs-be)
@@ -46,15 +46,33 @@ PhotoFootprint's overall goal is to help bring awareness to Eco friendly methods
 ### Agile <a name="agile"></a>
 I approached this project with an agile philosophy, applying the tools that GitHub offers to support this project. I set up a [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6), alongwith [Milestones](https://github.com/AlfredA93/pf-api/milestones) to help categorise the parts of the application that needed fulfilling. I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the User Stories and Tasks needed to be fulfilled. For the frontend I implemented User Stories which are referenced [below.](#user-stories)
 
+- GitHub Projects
+    - ![GitHub Projects](/documentation/frontend-imgs/agile-fe.webp)
+
+- GitHub Milestones
+    - ![GitHub Milestones](/documentation/frontend-imgs/agile-milestones.webp)
+
+
 ### Project Goal <a name="project-fe"></a>
 The goal within the frontend part of this project is to create a frontend React application that enables users to share content within a photobased social media platform. The platform should request and respond to the backend API handling the JSON data it receives which is then presented in a user friendly manner. Users can add/edit and/or delete posts, comments, likes, bookmarks. Users can create and edit their account. Users can also fill in a form to contact the PhotoFootprint Team through simple form.
 
 ### Scope <a name="scope-fe"></a>
 Our scope for this project is small and aims to cover the basic functionality of what a social media application needs, this is due to having a short timeframe to meet the deadline for this project. The project would be further developed upon post-production. 
 
-The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. Taking this into account,  I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6).
+The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. We needed to be flexible with the needs of the project due to the set deadline, which was why I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6). This meant that we had the core functionality of what we needed, but also allowed us to be flexible and address any bugs or errors if/when they arose.
 
 ### Structure <a name="structure-fe"></a>
+React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action.
+- Navigation Bar - This will feature throughout the entire site, staying consistent for the user.
+- Most Followed Accounts - Most Followed Accounts section will appear on every page (except the add/edit post page), below the navbar (on mobile/small screen devices) or to the right of the post(s) (on larger screens/desktops).
+- Post (when in Discover, Feed and Profile pages) - Each post will appear displaying the Image, Title, Travel Type and Summary, alongwith the Like icon and count, Comment Icon and count and the Bookmark Icon to save the bookmark. It will not display the main content of the post. On the Feed and Discover pages, the page has an Infinite Scroll feature that means more posts can be loaded without pagination (only if there are more than 10 posts on a page)
+- Post (once clicked into the post or clicking on the comment button) - Within the individual post page, the Post will now include the main content of the post, where the owner of the post can write more content for their post.
+- Comments - The comments section only appears on the individual post page, where users can now interact with the post and share their views with the owner of the post publically. This has Infinite Scroll, which loads older comments as you scroll down (only if there are more than 10 comments on a post).
+- Edit Post Dropdown - This dropdown menu will display on each post where there are current logged in user is the owner of the post on screen.
+- Edit Profile Dropdown - This dropdown menu allows the user to edit the profile details (username, password & bio) only if the current logged in user is the owner of the profile in view.
+- Contact Us - This component is a button which enables a Modal to appear on screen when clicked. This allows the user to contact the PhotoFootprint Team if there is any questions, queries or feedback about the website. This is shown only if the current logged in user is the owner of the profile in view.
+- Add/Edit Post - This is a standalone page where users can add or edit their posts. The Edit post page will automatically fill the fields with the current post data to be editted, for each of use.
+
 
 ### User Stories <a name="user-stories"></a>
 
@@ -96,9 +114,21 @@ The whole project needed to be fulfilled within 19 days, therefore the API would
 ### Design Choices
 
 #### Colors
+- I used [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) to help with color palette design. With the standout colors listed below
+  - #00A000 Green
+  - #3F4A3C Dark Grey with Green Hint
+  - #00A847 Green
+  - #14648D Pastel Blue
+  - #F6EDD9 Cream
+  - #00A6F3 Deep Sky Blue
+
+![ColorSpace](/documentation/frontend-imgs/design-colour.webp)
 
 #### Typography
 
+The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleFonts felt like the front that best matched the ethos of the [Overall Project Goals](#overall).
+
+![GoogleFonts](/documentation/frontend-imgs/fonts.webp)
 
 ### Wireframes
 
@@ -131,6 +161,8 @@ The whole project needed to be fulfilled within 19 days, therefore the API would
 
 
 ## Deployment <a name="deploy"></a>
+- runtime.txt
+- build static files
 
 ## [Testing](TESTING.md)
 All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
@@ -159,18 +191,16 @@ The code for the frontend of this project was inspired by the fantastic walkthro
 - Foot Icon in Logo	- [FreePik](https://freepik.com)
 
 # Backend - PhotoFootprint API <a name="backend"></a>
-
-- Welcome Message Image
-
 ## Design (backend) <a name="design-be"></a>
-### ERD <a name="erd"></a>
-![Model Image](documentation/backend-imgs/erd.webp)
 
 ### Agile (backend) <a name="agile-be"></a>
 To manage the tasks and user stories on this project I used GitHub Projects. For the backend I wrote Milestones for each app, with issues (tasks) to be completed within each milestone, which could then be 'closed' when each was completed. Here is a link to the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6) and [PhotoFootprint Milestones](https://github.com/AlfredA93/pf-api/milestones)
+- The picture below is during the API phase of completion, when the Front End User Stories were yet to be added to the Project.
+  - ![Agile Project](documentation/backend-imgs/agile-project.webp)
 
-![Agile Project](documentation/backend-imgs/agile-project.webp)
+### Project Goal (backend) <a name="goals-be"></a>
 
+The goal of the backend API is to create a fully functional API which supplies data for a frontend react app. The admins will be able to post, update and delete posts/comments/likes/bookmarks and follows within the development environment of the API (when debug is set to True). Outside of the development environment, Users will be able to do the same from the frontend react app accessing the API which serves JSON data directly to the frontend. 
 
 ### Tasks <a name="tasks"></a>
 | Milestone |Title |Description	| Label |
@@ -200,15 +230,10 @@ To manage the tasks and user stories on this project I used GitHub Projects. For
 |Likes API App|Like Serializers|Create LikeSerializer class with 'owner' as ReadOnlyField. Add duplication validation|Must Have|
 |Likes API App|	Like Views|	Create LikeList and LikeDetail views. Add permission_classes to only allow users to change their own data|Must Have|
 
-### Project Goal (backend) <a name="goals-be"></a>
-
-The goal of the backend API is to create a fully functional API which supplies data for a frontend react app. The admins will be able to post, update and delete posts/comments/likes/bookmarks and follows within the development environment of the API (when debug is set to True). Outside of the development environment, Users will be able to do the same from the frontend react app accessing the API which serves JSON data directly to the frontend. 
-
-
 ### Scope (backend) <a name="scope-be"></a>
 Our scope for this project is small and aims to cover the basic functionality of what a social media application needs, this is due to having a short timeframe to meet the deadline for this project. The project would be further developed upon post-production. 
 
-The whole project needs to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. Taking this into account,  I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6).
+The whole project needs to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. We needed to be flexible with the needs of the project due to the set deadline, which was why I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6). This meant that we had the core functionality of what we needed, but also allowed us to be flexible and address any bugs or errors if/when they arose.
 
 The API will have appropriate apps to fulfil the following tasks:
 - CRUD functionality on Posts **(Must Have)**
@@ -220,6 +245,7 @@ The API will have appropriate apps to fulfil the following tasks:
 
 
 ### Structure (backend) <a name="structure-be"></a>
+The structure of the API needed to be organised, so we could make sure that all the relationships between the models could be mapped before coding. Below in the [ERD](#erd) section, you can see the relationships between the models with the arrows.
 
 - Post Model
 - Profile Model
@@ -230,12 +256,18 @@ The API will have appropriate apps to fulfil the following tasks:
 - Message Model
 - Contact Model
 
-## Features
+#### ERD <a name="erd"></a>
+![Model Image](documentation/backend-imgs/erd.webp)
 
+## Features
+- CRUD Functionality
 ### Future Features
 - Add a map model for setting coordinates, so users can store their journey's and share them on each post.
 
 ## Deployment <a name="deploy-be"></a>
+
+- Procfile
+- Config Vars
 
 ## [Testing](TESTING.md)
 All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
