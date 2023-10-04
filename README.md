@@ -1,6 +1,6 @@
 # PhotoFootprint
 ## Introduction
-PhotoFootprint is a photo based social media platform for travellers. It's core goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. 
+PhotoFootprint is a photo based social media platform for travellers. It's core goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. You can see the live website [here](https://photofootprint-combined-63d886cb4a04.herokuapp.com/)
 ## Contents
 The README is split into 7 different parts - Overall Project Goals, Frontend, Backend, Deployment, Testing, Overall Learning Outcomes and Acknowledgements. These are all shown in the Contents list below. Testing is shown on a seperate markdown file linked within the Testing section below.
 
@@ -111,7 +111,6 @@ React is based on components. So within the display view, many components can ma
 |The Profile Page Front-End|User Story - Update username and password|As a **logged in user** I can **update my login details** so that **keep my data secure and in my own control**|Must Have|
 
 ### Design Choices
-
 #### Colors
 - I used [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) to help with color palette design. With the standout colors listed below
   - #00A000 Green
@@ -135,24 +134,38 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
 
 
 ## Features <a name="features"></a>
-- Navigation Bar
-- Discover Page (Home Page)
-- Feed
-- Search Bar
-- Saved (Bookmarked)
-- Likes
-- Sign Up
-- Sign In
-- Sign Out
-- Add (add post)
-- Edit Post
-- Delete Post
-- Comments
-- Edit Profile
-- Contact Us Modal
+- Navigation Bar. This allows the user to navigate consistently throughout the site. The Nav Bar will show two different sets of icons depending on whether the user is logged in or logged out. 
+  - When the user is logged in, the following icons will show:
+      - Add (add a post)
+      - Discover (see all posts uploaded, with most recent appearing first)
+      - Feed (see the posts from users that I follow)
+      - Saved (see posts that I have bookmarked)
+      - Log Out
+      - Profile (see all of my posts in one place, and also where I can edit my profile)
+  - When the user is logged out, the following icons will show:
+      - Discover
+      - Sign In
+      - Sign Up
+- Discover Page (Home Page) - This is where all the posts can be seen and searched through. This is where users can discover new places, new posts, new users, new people to follow and be inspired by, and maybe even inspire! It has Infinite Scroll, so users can easily and simply scroll through posts without having to deal with pagination or page refreshes. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
+- Feed - This is where the users can see all the posts from the user's they follow. It has all the same features of the Discover Page, but is filtered by the profiles that you follow. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
+- Search Bar - The search bar features on the Discover, Feed, and Saved pages. Users can search through all the posts within the current page environment(ie. Discover, Feed or Saved Page) by Title, Travel type and author/owner.
+- Saved (Bookmarked) - This page will show all of the posts that the user has saved for future viewing. I felt it important to differentiate between likes and bookmarks, as not everyone post that you like, you want to save for later. Where as with bookmarks, you can save the posts you really love for later. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
+- Post (individual page) - On this page, users can see the full content of the post, including the Content text of the post, this feature, alongwith commenting, sets this page apart from the Discover, Feed and Saved Pages. As aforementioned, users can comment on posts on this page.
+- Likes - This feature is a simple like button, so users can share their encouragement for posts they enjoy.
+- Sign Up - This is a sign up form with backend validation which show any errors in frontend alert banners.
+- Sign In - This is a sign in form with backend validation which show any errors in frontend alert banners.
+- Log Out - This is a simple button to trigger logging out
+- Add (add post) - On this page, users can upload a post. There is frontend and backend validation to check the data provided, to see if the file is an image or not. If there is a file at all. If the required fields are filled. If there are any errors, there are Alert banners which highlight the field with the error.
+- Edit Post - On this page, users can edit a post. The fields are automatically filled with the data the post already has. There is frontend and backend validation to check the data provided, to see if the file is an image or not. If there is a file at all. If the required fields are filled. If there are any errors, there are Alert banners which highlight the field with the error. User's can edit the post from anywhere on the platform where the user can see their own post.
+- Delete Post - This simple button deletes the post 
+- Comments - Users create/edit or delete comments on posts
+- Profiles - Users can see the profile page inc profile statistics of that specific profile. If they are viewing a different user's profile (ie. if Alfred is looking at Patrick's profile), a follow button will show on the profile. If they are viewing their own profile the edit profile dropdown menu (three vertical dots) will show along with a Contact Us button.
+- Edit Profile - Users can edit they're username, bio and password in the profile section of the website. They can only do this on their own profile and not on other user's profiles.
+- Contact Us Modal - This modal is for user's to get in contact with the PhotoFootprint team. Once the form is filled out and sent, the API backend will send an automatic email through to the user from the data provided in the form.
   - Contact Us Email
     - ![Contact Us Email](documentation/frontend-imgs/contact-email.webp)
-
+- Most followed profiles - This shows a list of the 10 most followed profiles on the website alongwith their current follower counts.
+- Follow/Unfollow profiles - Through either the most followed profiles component or the profiles page, users can follow or unfollow accounts. 
 ### Future Features <a name="future"></a>
 
 - Add a map which shows the journey in where the user has travelled.
@@ -165,6 +178,7 @@ The code for the frontend of this project was inspired by the fantastic walkthro
 
 ### Code <a name="code-fe"></a>
 - Code Institute's [Moments](https://github.com/Code-Institute-Solutions/moments) code was used throughout the set up of this project. It was the prefect starting point for PhotoFootprint. Many of the core CRUD functions of the frontend between Moments and PhotoFootprint aligned, along with styling and composition. I editted, customised and added different buttons and styling to fit the specific needs of PhotoFootprint. 
+- Within the modal code, in order to fix a bug I needed to add the following code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
 
 ### Helpsheets, Documentation and Useful Resources <a name="helpsheets"></a>
 - [React Bootstrap Components](https://react-bootstrap-v4.netlify.app/components/)
@@ -281,7 +295,7 @@ The structure of the API needed to be organised, so we could make sure that all 
 
 Filters - We need filters for the following:
 - Posts filtered by bookmark and bookmark owner (for saved page)
-- Posts filtered by title, travel, content and owner (for search bar)
+- Posts filtered by title, travel and owner (for search bar)
 - Posts filtered by owner (for profile page)
 - Posts filtered by following (for feed page)
 
@@ -289,7 +303,17 @@ Filters - We need filters for the following:
 ![Model Image](documentation/backend-imgs/erd.webp)
 
 ## Features
-The API's main features within this app are CRUD based. ie. Create, Read, Update and Destroy.
+The API's main features within this app are CRUD based. ie. Create, Read, Update and Destroy. The following list shows what this API can provide through various request/post/put & delete calls.
+- Add/Edit/Delete a Post
+- Add/Edit/Delete a Comment 
+- Add/Delete a Like 
+- Add/Delete a Bookmark
+- Add/Delete a Follow
+- Filter posts by bookmark and bookmark owner
+- Filter posts by title, travel and owner
+- Filter posts by owner
+- Filter posts by following 
+- Filter posts by followers 
 ### Future Features
 - Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
 - Enable video and larger files to be uploaded.
