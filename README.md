@@ -1,5 +1,6 @@
 # PhotoFootprint
 ## Introduction
+PhotoFootprint is a photo based social media platform for travellers. It's core goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. 
 ## Contents
 - [Overall Project Goals](#overall)
 - [Frontend](#frontend)
@@ -13,7 +14,6 @@
     - [Future Features](#future)
   - [Deployment](#deploy)
   - [Testing](TESTING.md)
-  - [Libraries Used](#libs)
   - [Credits](#creds)
     - [Code](#code-fe)
     - [Helpsheets, Documentation and Useful Resources](#helpsheets)
@@ -38,15 +38,21 @@
 - [Acknowledgements](#acknow)
 
 # Overall Project Goals <a name="overall"></a>
+PhotoFootprint's overall goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. The application will have a fully CRUD functional API with frontend that serves the API JSON data in a user friendly manner.
 # Frontend <a name="frontend"></a>
 
 ## Design <a name="design"></a>
 
 ### Agile <a name="agile"></a>
+I approached this project with an agile philosophy, applying the tools that GitHub offers to support this project. I set up a [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6), alongwith [Milestones](https://github.com/AlfredA93/pf-api/milestones) to help categorise the parts of the application that needed fulfilling. I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the User Stories and Tasks needed to be fulfilled. For the frontend I implemented User Stories which are referenced [below.](#user-stories)
 
 ### Project Goal <a name="project-fe"></a>
+The goal within the frontend part of this project is to create a frontend React application that enables users to share content within a photobased social media platform. The platform should request and respond to the backend API handling the JSON data it receives which is then presented in a user friendly manner. Users can add/edit and/or delete posts, comments, likes, bookmarks. Users can create and edit their account. Users can also fill in a form to contact the PhotoFootprint Team through simple form.
 
 ### Scope <a name="scope-fe"></a>
+Our scope for this project is small and aims to cover the basic functionality of what a social media application needs, this is due to having a short timeframe to meet the deadline for this project. The project would be further developed upon post-production. 
+
+The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. Taking this into account,  I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6).
 
 ### Structure <a name="structure-fe"></a>
 
@@ -87,35 +93,70 @@
 |The Profile Page Front-End|User Story - Edit profile|As a **logged in user** I can **edit my own profile** so that **I can change my data when I choose to**|Must Have|
 |The Profile Page Front-End|User Story - Update username and password|As a **logged in user** I can **update my login details** so that **keep my data secure and in my own control**|Must Have|
 
-## Features <a name="features"></a>
+### Design Choices
 
-- Feature 1
-- Feature 2
-- Feature 3
-- Contact Us Email
-  - ![Contact Us Email](documentation/frontend-imgs/contact-email.webp)
+#### Colors
+
+#### Typography
+
+
+### Wireframes
+
+
+## Features <a name="features"></a>
+- Navigation Bar
+- Discover Page (Home Page)
+- Feed
+- Search Bar
+- Saved (Bookmarked)
+- Likes
+- Sign Up
+- Sign In
+- Sign Out
+- Add (add post)
+- Edit Post
+- Delete Post
+- Comments
+- Edit Profile
+- Contact Us Modal
+  - Contact Us Email
+    - ![Contact Us Email](documentation/frontend-imgs/contact-email.webp)
 
 ### Future Features <a name="future"></a>
 
 - Add a map which shows the journey in where the user has travelled.
-- Feature 2
-- Feature 3
+- Live Location Sharing (which city/country they're currently travelling through)
+- Video upload
+- Live video sharing
+
 
 ## Deployment <a name="deploy"></a>
 
 ## [Testing](TESTING.md)
 All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
 
-## Libraries Used <a name="libs"></a>
 
 ## Credits <a name="creds"></a>
+The code for the frontend of this project was inspired by the fantastic walkthrough project conducted by the [CodeInstitute]((https://codeinstitute.net/de/)) Team. The frontend React app called *Moments* (link to which is found in the Code section below) was the perfect grounding for PhotoFootprint to build on. 
 
 ### Code <a name="code-fe"></a>
+- Code Institute's [Moments](https://github.com/Code-Institute-Solutions/moments) code was used throughout the set up of this project. It was the prefect starting point for PhotoFootprint. Many of the core CRUD functions of the frontend between Moments and PhotoFootprint aligned, along with styling and composition. I editted, customised and added different buttons and styling to fit the specific needs of PhotoFootprint. 
 
 ### Helpsheets, Documentation and Useful Resources <a name="helpsheets"></a>
+- [React Bootstrap Components](https://react-bootstrap-v4.netlify.app/components/)
+- React Bootstrap - [Modal](https://react-bootstrap-v4.netlify.app/components/modal/) 
 
 ### Technology <a name="tech"></a>
+- [React](https://react.dev/learn)
+- [ReactBootstrap](https://react-bootstrap-v4.netlify.app/)
+- [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) for color palette design 
+- [Favicon creator](https://favicon.io/favicon-converter/)
+- [Resize pixels](https://www.resizepixel.com/download) - used when resizing logo
+- [Remove background](https://www.remove.bg/upload) in image - used for logo background removal 
 ### Media <a name="media-fe"></a>
+- All post images in the base content are from [Unsplash](https://unsplash.com/)
+- Upload icon found on the Add post page and search icon found when no search results appear and on '404 Page Not Found' - [PNG Tree](https://pngtree.com/)
+- Foot Icon in Logo	- [FreePik](https://freepik.com)
 
 # Backend - PhotoFootprint API <a name="backend"></a>
 
@@ -167,9 +208,9 @@ The goal of the backend API is to create a fully functional API which supplies d
 ### Scope (backend) <a name="scope-be"></a>
 Our scope for this project is small and aims to cover the basic functionality of what a social media application needs, this is due to having a short timeframe to meet the deadline for this project. The project would be further developed upon post-production. 
 
-This project needs to be fulfilled within 19 days, the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (9-10 days), allowing a minimum of 2 days for README documentation to be fulfilled at the end. Taking this into account,  I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6).
+The whole project needs to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. Taking this into account,  I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6).
 
-The project will have appropriate apps to fulfil the following tasks:
+The API will have appropriate apps to fulfil the following tasks:
 - CRUD functionality on Posts **(Must Have)**
 - CRUD functionality on Comments **(Must Have)**
 - Create, Read and Delete functionality on Likes **(Must Have)**
@@ -187,6 +228,7 @@ The project will have appropriate apps to fulfil the following tasks:
 - Follower Model
 - Bookmark Model
 - Message Model
+- Contact Model
 
 ## Features
 
@@ -217,7 +259,7 @@ All testing and code validation is shown in the seperate [TESTING.md](TESTING.md
 PhotoFootprint was inspired and supported by the brilliant walkthrough project conducted by the Team at [CodeInstitute](https://codeinstitute.net/de/). The API built in the *drf-api* walkthrough (linked below in **Code** section) was the perfect grounding for PhotoFootprint to set up from. 
 
 ### Code <a name="code-be"></a>
-- Code Institute [drf-api](https://github.com/Code-Institute-Solutions/drf-api) code was the boiling plate for PhotoFootprint API. This project was the perfect fit for what PhotoFootprint's goal was, customising and editting the code to fit the specific needs of PhotoFootprint. 
+- Code Institute's [drf-api](https://github.com/Code-Institute-Solutions/drf-api) code was the basis for PhotoFootprint API. [drf-api](https://github.com/Code-Institute-Solutions/drf-api) was the perfect fit for what PhotoFootprint's goal was, so I editted, customised and added models and code to fit the specific needs of PhotoFootprint. 
 
 ### Helpsheets, Documentation and Useful Resources <a name="helps-be"></a>
 - [AbstractAPI - Django Send Email](https://www.abstractapi.com/guides/django-send-email): Brilliant helpsheet and tutorial for setting up Django `send_mail()` functionality.
@@ -233,7 +275,7 @@ PhotoFootprint was inspired and supported by the brilliant walkthrough project c
 - [Tiny Img](https://tiny-img.com/webp/) - convert png to webp images for README documentation screenshots.
 
 ### Media <a name="media-be"></a>
-- Default Profile and Post images were taken from Code Institute Walkthrough in their learning materials.
+- Default Profile and Post images are from [CodeInstitute](https://codeinstitute.net/de/) [drf-api](https://github.com/Code-Institute-Solutions/drf-api)Walkthrough in their learning materials.
 
 # Overall Learning Outcomes <a name="outcomes"></a>
 
