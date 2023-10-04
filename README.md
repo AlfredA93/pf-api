@@ -12,7 +12,6 @@ PhotoFootprint is a photo based social media platform for travellers. It's core 
     - [User Stories](#user-stories)
   - [Features](#features)
     - [Future Features](#future)
-  - [Deployment](#deploy)
   - [Testing](TESTING.md)
   - [Credits](#creds)
     - [Code](#code-fe)
@@ -26,14 +25,14 @@ PhotoFootprint is a photo based social media platform for travellers. It's core 
     - [Tasks](#tasks)
     - [Structure](#structure-be)
     - [ERD](#erd)
-  - [Deployment](#deploy-be)
   - [Testing](TESTING.md)
   - [Libraries Used](#libs-be)
   - [Credits](#cred-be)
     - [Code](#code-be)
     - [Helpsheets, Documentation and Useful Resources](#helps-be)
-  - [Techonology](#tech-be)
-  - [Media](#media-be)
+    - [Techonology](#tech-be)
+    - [Media](#media-be)
+- [Deployment](#deploy)
 - [Overall Learning Outcomes](#outcomes)
 - [Acknowledgements](#acknow)
 
@@ -132,6 +131,8 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
 
 ### Wireframes
 
+- Add wireframes here
+
 
 ## Features <a name="features"></a>
 - Navigation Bar
@@ -158,11 +159,6 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
 - Live Location Sharing (which city/country they're currently travelling through)
 - Video upload
 - Live video sharing
-
-
-## Deployment <a name="deploy"></a>
-- runtime.txt
-- build static files
 
 ## [Testing](TESTING.md)
 All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
@@ -260,14 +256,10 @@ The structure of the API needed to be organised, so we could make sure that all 
 ![Model Image](documentation/backend-imgs/erd.webp)
 
 ## Features
-- CRUD Functionality
+The API's main features within this app are CRUD based. ie. Create, Read, Update and Destroy.
 ### Future Features
-- Add a map model for setting coordinates, so users can store their journey's and share them on each post.
-
-## Deployment <a name="deploy-be"></a>
-
-- Procfile
-- Config Vars
+- Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
+- Enable video and larger files to be uploaded.
 
 ## [Testing](TESTING.md)
 All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
@@ -307,7 +299,25 @@ PhotoFootprint was inspired and supported by the brilliant walkthrough project c
 - [Tiny Img](https://tiny-img.com/webp/) - convert png to webp images for README documentation screenshots.
 
 ### Media <a name="media-be"></a>
-- Default Profile and Post images are from [CodeInstitute](https://codeinstitute.net/de/) [drf-api](https://github.com/Code-Institute-Solutions/drf-api)Walkthrough in their learning materials.
+- Default Profile and Post images are from [CodeInstitute](https://codeinstitute.net/de/) [drf-api](https://github.com/Code-Institute-Solutions/drf-api) walkthrough learning materials.
+
+## Deployment <a name="deploy"></a>
+
+This project was deployed to Heroku. To prepare the backend for this we need to do the following.
+- Create a `Procfile` at the top most directory of the code - this will be used my Heroku command line to know what to do with the code once the application is built. In this file the code below should be written on seperate lines
+  - `release: python manage.py makemigrations && python manage.py migrate`
+  - `web: gunicorn photofootapi.wsgi`
+- Create a `requirements.txt` file. The easiest way to do this is once your code is ready for deployment type in the command when under the root directory `pip freeze > requirements.txt` and all the Python libraries will be added to the requirements.txt file, ready for Heroku to install all the dependancies.
+- Create a runtime.txt file - This is used by Heroku to determine which version of Python to use to run the libraries within your application. Check the heroku support documentation to see which Python versions are still supported [here](https://devcenter.heroku.com/articles/python-support#specifying-a-python-version). I chose this version - `python-3.11.5`
+- Build a production ready application in the IDE before deployment, so Heroku can deploy this will greater ease. Under the root directory, add a new `staticfiles` folder. Making sure to keep it case sensitive to `staticfiles`. Once this has been done. Type in the command `python manage.py collectstatic`. This will compile all the static files from the backend to the staticfolder. Now change directory into the frontend folder - `cd frontend` and type this code `npm run build && mv build ../staticfiles/.` This will build the react application and place all the necessary build files into a build folder and then move it into the staticfiles folder we previously created. If you need to make any future changes post deployment, use this following command to make changes to the latest build - `npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.` 
+- **Before deploying your production ready application you must set DEBUG = False within your IDE, so the site works as intended with any 404 pages working correctly. Once this change has been made, you can `push` the changes to your GitHub Repository** 
+- Set up an account with Heroku, then follow these steps for deployment -
+  - Create an app
+  - Name the app
+  - Connect the app to GitHub and find the repository.
+  - Configure Variables - These are often the sensitive data variables that are needed to be kept secret from public sight. Head over to the settings tab and under the Config Vars sections, add the config vars appropriate to the app. In this case, it is ALLOWED_HOSTS, CLIENT_ORIGIN, CLOUDINARY_URL and DATABASE_URL, EMAIL_HOST_PASS, EMAIL_HOST_USER and SECRET_KEY. **Note: ALLOWED_HOSTS and CLIENT_ORIGIN will be almost identical. ALLOWED_HOSTS will be the url without `https://` and CLIENT_ORIGIN will have the full length url including `https://`, however excluding the final forward slash `/`**
+    - ![Deployment Heroku]()
+  - Go to the Deploy tab and half way down the page you can choose to select automatic deploy (this is optional). When this is active, whenever a new edit is received by GitHub, Heroku also updates the application and builds a new deployment. I chose for this project not to automatically deploy with each `git push`. Click the deploy branch button at the bottom and await for completion. You will be alerted within the build console when the build and subsequent deployment is complete.
 
 # Overall Learning Outcomes <a name="outcomes"></a>
 
