@@ -2,6 +2,8 @@
 ## Introduction
 PhotoFootprint is a photo based social media platform for travellers. It's core goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. 
 ## Contents
+The README is split into 7 different parts - Overall Project Goals, Frontend, Backend, Deployment, Testing, Overall Learning Outcomes and Acknowledgements. These are all shown in the Contents list below. Testing is shown on a seperate markdown file linked within the Testing section below.
+
 - [Overall Project Goals](#overall)
 - [Frontend](#frontend)
   - [Design](#design)
@@ -12,7 +14,6 @@ PhotoFootprint is a photo based social media platform for travellers. It's core 
     - [User Stories](#user-stories)
   - [Features](#features)
     - [Future Features](#future)
-  - [Testing](TESTING.md)
   - [Credits](#creds)
     - [Code](#code-fe)
     - [Helpsheets, Documentation and Useful Resources](#helpsheets)
@@ -25,7 +26,6 @@ PhotoFootprint is a photo based social media platform for travellers. It's core 
     - [Tasks](#tasks)
     - [Structure](#structure-be)
     - [ERD](#erd)
-  - [Testing](TESTING.md)
   - [Libraries Used](#libs-be)
   - [Credits](#cred-be)
     - [Code](#code-be)
@@ -33,15 +33,15 @@ PhotoFootprint is a photo based social media platform for travellers. It's core 
     - [Techonology](#tech-be)
     - [Media](#media-be)
 - [Deployment](#deploy)
+- [Testing](TESTING.md)
 - [Overall Learning Outcomes](#outcomes)
 - [Acknowledgements](#acknow)
 
 # Overall Project Goals <a name="overall"></a>
 PhotoFootprint's overall goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. The application will have a fully CRUD functional API with frontend that serves the API JSON data in a user friendly manner.
 # Frontend <a name="frontend"></a>
-
+The frontend of this project is a React JS application. The following subsections are all of the Design, Features & Credits of the frontend part of this project.
 ## Design <a name="design"></a>
-
 ### Agile <a name="agile"></a>
 I approached this project with an agile philosophy, applying the tools that GitHub offers to support this project. I set up a [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6), alongwith [Milestones](https://github.com/AlfredA93/pf-api/milestones) to help categorise the parts of the application that needed fulfilling. I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the User Stories and Tasks needed to be fulfilled. For the frontend I implemented User Stories which are referenced [below.](#user-stories)
 
@@ -160,10 +160,6 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
 - Video upload
 - Live video sharing
 
-## [Testing](TESTING.md)
-All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
-
-
 ## Credits <a name="creds"></a>
 The code for the frontend of this project was inspired by the fantastic walkthrough project conducted by the [CodeInstitute]((https://codeinstitute.net/de/)) Team. The frontend React app called *Moments* (link to which is found in the Code section below) was the perfect grounding for PhotoFootprint to build on. 
 
@@ -187,15 +183,14 @@ The code for the frontend of this project was inspired by the fantastic walkthro
 - Foot Icon in Logo	- [FreePik](https://freepik.com)
 
 # Backend - PhotoFootprint API <a name="backend"></a>
+The backend of this project is a Django REST API application. The following subsections are all of the Design, Features & Credits of the backend part of this project.
 ## Design (backend) <a name="design-be"></a>
-
 ### Agile (backend) <a name="agile-be"></a>
 To manage the tasks and user stories on this project I used GitHub Projects. For the backend I wrote Milestones for each app, with issues (tasks) to be completed within each milestone, which could then be 'closed' when each was completed. Here is a link to the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6) and [PhotoFootprint Milestones](https://github.com/AlfredA93/pf-api/milestones)
 - The picture below is during the API phase of completion, when the Front End User Stories were yet to be added to the Project.
   - ![Agile Project](documentation/backend-imgs/agile-project.webp)
 
 ### Project Goal (backend) <a name="goals-be"></a>
-
 The goal of the backend API is to create a fully functional API which supplies data for a frontend react app. The admins will be able to post, update and delete posts/comments/likes/bookmarks and follows within the development environment of the API (when debug is set to True). Outside of the development environment, Users will be able to do the same from the frontend react app accessing the API which serves JSON data directly to the frontend. 
 
 ### Tasks <a name="tasks"></a>
@@ -244,13 +239,51 @@ The API will have appropriate apps to fulfil the following tasks:
 The structure of the API needed to be organised, so we could make sure that all the relationships between the models could be mapped before coding. Below in the [ERD](#erd) section, you can see the relationships between the models with the arrows.
 
 - Post Model
+    - owner (Foreign Key - from User model)
+    - title - max length 100 characters
+    - summary - max length 250 characters
+    - content - text field
+    - image - image field, default post image if user doesn't add image
+    - travel - choice of 9 travels types: bicycle, boat, by foot, car, electric car, multiple, other, plane, train
+    - created_at - datetime field
+    - updated_at - datetime field
 - Profile Model
+    - owner (Foreign Key - from User model)
+    - created_at - datetime field
+    - updated_at - datetime field
+    - name - max length 250 characters
+    - bio - text field
+    - image - image field, default post image if user doesn't add image
 - Comment Model
+    - owner (Foreign Key - from User model)
+    - post (Foreign Key - from Post Model)
+    - content - text field
+    - created_at - datetime field
+    - updated_at - datetime field
 - Like Model
+    - owner (Foreign Key - from User model)
+    - post (Foreign Key - from Post Model)
+    - created_at - datetime field
 - Follower Model
+    - owner (Foreign Key - from User model, related_name='following')
+    - owner (Foreign Key - from User model, related_name='followed')
+    - created_at - datetime field
 - Bookmark Model
+    - owner (Foreign Key - from User model)
+    - post (Foreign Key - from Post Model)
+    - created_at - datetime field
 - Message Model
-- Contact Model
+    - name - char field, max length 120 characters
+    - email - email field
+    - subject - char field, max length 120 characters
+    - message - text field
+    - created_at - datetime field
+
+Filters - We need filters for the following:
+- Posts filtered by bookmark and bookmark owner (for saved page)
+- Posts filtered by title, travel, content and owner (for search bar)
+- Posts filtered by owner (for profile page)
+- Posts filtered by following (for feed page)
 
 #### ERD <a name="erd"></a>
 ![Model Image](documentation/backend-imgs/erd.webp)
@@ -261,8 +294,6 @@ The API's main features within this app are CRUD based. ie. Create, Read, Update
 - Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
 - Enable video and larger files to be uploaded.
 
-## [Testing](TESTING.md)
-All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
 
 ## Libraries Used <a name="libs-be"></a>
 - Cloudinary - [`pip install cloudinary==1.34.0`](https://pypi.org/project/cloudinary/) - Cloud based image storage
@@ -316,8 +347,11 @@ This project was deployed to Heroku. To prepare the backend for this we need to 
   - Name the app
   - Connect the app to GitHub and find the repository.
   - Configure Variables - These are often the sensitive data variables that are needed to be kept secret from public sight. Head over to the settings tab and under the Config Vars sections, add the config vars appropriate to the app. In this case, it is ALLOWED_HOSTS, CLIENT_ORIGIN, CLOUDINARY_URL and DATABASE_URL, EMAIL_HOST_PASS, EMAIL_HOST_USER and SECRET_KEY. **Note: ALLOWED_HOSTS and CLIENT_ORIGIN will be almost identical. ALLOWED_HOSTS will be the url without `https://` and CLIENT_ORIGIN will have the full length url including `https://`, however excluding the final forward slash `/`**
-    - ![Deployment Heroku]()
+    - ![Deployment Heroku](/documentation/deployment.webp)
   - Go to the Deploy tab and half way down the page you can choose to select automatic deploy (this is optional). When this is active, whenever a new edit is received by GitHub, Heroku also updates the application and builds a new deployment. I chose for this project not to automatically deploy with each `git push`. Click the deploy branch button at the bottom and await for completion. You will be alerted within the build console when the build and subsequent deployment is complete.
+
+## [Testing](TESTING.md)
+All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
 
 # Overall Learning Outcomes <a name="outcomes"></a>
 
