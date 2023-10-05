@@ -234,6 +234,7 @@ The goal of the backend API is to create a fully functional API which supplies d
 |Likes API App|	Like Model|Create Like Model with fields owner (FK - User), post (FK - Post) and created_at. 'post' with related_name 'likes.' Include unique_together in the Meta class to help stop duplication|Must Have|
 |Likes API App|Like Serializers|Create LikeSerializer class with 'owner' as ReadOnlyField. Add duplication validation|Must Have|
 |Likes API App|	Like Views|	Create LikeList and LikeDetail views. Add permission_classes to only allow users to change their own data|Must Have|
+|Admin API|Admin panel - Content Management | As an Admin, I can manage the content of the website so that I can delete any harmful or malicious posts/comments/messages | Could Have |
 
 ### Scope (backend) <a name="scope-be"></a>
 Our scope for this project is small and aims to cover the basic functionality of what a social media application needs, this is due to having a short timeframe to meet the deadline for this project. The project would be further developed upon post-production. 
@@ -320,6 +321,7 @@ The API's main features within this app are CRUD based. ie. Create, Read, Update
 ### Future Features
 - Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
 - Enable video and larger files to be uploaded.
+- Enhanced filtering on the content through the admin panel.
 
 
 ## Libraries Used <a name="libs-be"></a>
@@ -348,6 +350,7 @@ PhotoFootprint was inspired and supported by the brilliant walkthrough project c
 - [Django send_mail documentation](https://docs.djangoproject.com/en/3.2/topics/email/)
 - [Django REST Auth Documentation](https://dj-rest-auth.readthedocs.io/en/latest/installation.html)
 - [Adding contents table to README file](https://community.atlassian.com/t5/Bitbucket-questions/How-to-write-a-table-of-contents-in-a-Readme-md/qaq-p/673363)
+- [Django Admin Documentation](https://docs.djangoproject.com/en/4.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields) - Read-only fields
 
 ### Technology <a name="tech-be"></a>
 - [Cloudinary](www.cloudinary.com): For image storage
