@@ -314,6 +314,9 @@ The API's main features within this app are CRUD based. ie. Create, Read, Update
 - Filter posts by owner
 - Filter posts by following 
 - Filter posts by followers 
+- Admin Panel, so the admin can have control over the content on the website. For example, if any harmful content is posted, the Admin can remove the content and/or user profile.
+  - The Apps registered in the admin panel are Comments, Contact(Message Model), Posts and Profiles. 
+  - All of these are registered as read-only fields so the admin can only assess and delete any user content that is harmful.
 ### Future Features
 - Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
 - Enable video and larger files to be uploaded.
