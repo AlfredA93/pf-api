@@ -2,7 +2,6 @@
 from django.contrib.auth.models import User
 from rest_framework.test import APITestCase
 from rest_framework import status
-from .models import Comment
 
 
 class CommentListViewTest(APITestCase):
@@ -17,6 +16,7 @@ class CommentListViewTest(APITestCase):
             })
 
     def test_user_can_comment_on_post(self):
+        """Test User can comment on a post"""
         response = self.client.post('/api/comments/', {
             'post': 'a title from tim',
             'content': 'test comment from tim'
