@@ -196,7 +196,7 @@ The performance score can vary depending on the speed of the API data delivery. 
 
 - **Problem 3**:  If you repeatedly click very flash on the post button during comment post submission, the comment is posted multiple times.
   - ![Comment Repeat](/documentation/testing-imgs/bug-comment-repeat.webp)
-  - ***Fix 3***: Add a `disabled` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment and Contact Us Modal pages/components too.
+  - ***Fix 3***: Add a `disabled` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment, Contact Us Modal, Profile Edit, Username Edit, Password Edit pages/components too.
 ```JSX
 function CommentCreateForm(props) {
 ...
