@@ -305,6 +305,11 @@ For all python Code, I installed the Flake8 extension provided by Microsoft into
 |Admin API |	Admin's can **delete** comments, posts and messages (contact us) through the admin panel|✓|
   - ![Test Delete Post](/documentation/testing-imgs/test-admin-4.webp)
 
+| Milestone | Description	| Checked |
+|---------|-------------|-------|
+|Admin API |	Admin's can **update** posts through the admin panel|✓|
+  -![Test Admin Update Post](/documentation/testing-imgs/test-admin-update.webp)
+
 ## Automated Testing <a name="be-auto"></a>
 
 The automated tests run on the backend API were done under the guidance and instruction from the CodeInstitute drf-api walkthrough learning materials, so I credit code institute for their brilliant support in learning how to conduct automated tests.
