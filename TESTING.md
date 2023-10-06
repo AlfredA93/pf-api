@@ -19,9 +19,67 @@ For All Javascript and JSX Code, I installed the ESLint extension provided by Mi
 
 ## Bugs
 
-- Modal cancel/close button not working as intended.
-- Fix - link in credit
+There are no known bugs in the frontend application of this project. All bugs have been fixed and noted in the below section.
 
+- Problem 1: Error occuring in the console on the create and edit form pages
+  - ![Console Error](/documentation/testing-imgs/bug-form-id.webp)
+- Fix 1: Remove the Bootstrap `controlId` prop from the bootstrap `<Form.Group>` component boilerplate code used for the Travel dropdown options section of the form.
+```Javascript 
+  <Form.Group>
+        <Form.Label>Travel Type</Form.Label>
+        <Form.Control
+          as="select"
+          name="travel"
+          value={travel}
+          onChange={handleChange}
+        >
+          <option value="bicycle">Bicycle</option>
+          <option value="boat">Boat</option>
+          <option value="foot">By Foot</option>
+          <option value="car">Combustion Engine Car</option>
+          <option value="electric">Electric Car</option>
+          <option value="multiple">Multiple</option>
+          <option value="other">Other</option>
+          <option value="plane">Plane</option>
+          <option value="train">Train</option>
+        </Form.Control>
+  </Form.Group>
+```
+
+- **Problem 2**: Infinite Scroll not operating as expected
+  - ![InfiniteScroll](/documentation/testing-imgs/bug-cors-infinitescroll.webp)
+- ***Fix 2***: Correct typo in the CLIENT_ORIGIN env.py file
+
+- **Problem 3**:  If you repeatedly click very flash on the post button during comment post submission, the comment is posted multiple times.
+  - ![Comment Repeat](/documentation/testing-imgs/bug-comment-repeat.webp)
+- ***Fix 3***: Add a `disablec` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation.
+```JSX
+function CommentCreateForm(props) {
+...
+const [sending, setSending] = useState(false);
+...
+const handleSubmit = async (event) => {
+    setSending(true);
+    ...
+    try { 
+        ...
+     } catch (err) {
+        ...
+    }
+    setSending(false);
+  };
+
+...
+ return (
+    ...
+      <button
+        className={`${styles.Button} btn d-block ml-auto`}
+        disabled={!content.trim() || sending}
+        type="submit"
+      >
+... )
+}
+```
 # Backend Testing
 
 ## Validation
@@ -249,5 +307,6 @@ class CommentListViewTest(APITestCase):
 There was only one minor bug in the backend API which is mentioned below. Beyond this bug there are no known bugs in the API.
 
 - Problem: The filter names not displaying on the api view - this is only visible when debug = True in development mode and does not cause any problems with the functioning of the API
-  - Fix: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
-    - ![Known Django Filter Bug](/documentation/testing-imgs/bug-known-djangofilter.webp)
+  - ![Known Django Filter Bug](/documentation/testing-imgs/bug-known-djangofilter.webp)
+- Fix: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
+
