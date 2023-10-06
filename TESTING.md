@@ -30,11 +30,11 @@
 ## Validation<a name="fe-valid"></a>
 ### [W3C HTML Validator](https://validator.w3.org/#validate_by_input) <a name="html-valid"></a>
 
-All HTML code in this project is valid
+#### All HTML code in this project is valid
 
 ![HTML Valid](/documentation/testing-imgs/html-valid.webp)
 
-I conducted this test by right clicking on each page, selecting View Page Source and then copying the core code across into the direct input section of the [W3C HTML Validator](https://validator.w3.org/#validate_by_input).
+#### I conducted this test by right clicking on each page, selecting View Page Source and then copying the core code across into the direct input section of the [W3C HTML Validator](https://validator.w3.org/#validate_by_input).
 
 ![View Page Source Image](/documentation/testing-imgs/test-html.webp)
 
@@ -157,17 +157,17 @@ The performance score can vary depending on the speed of the API data delivery. 
 ### Edge Case Tests <a name="edge-cases"></a>
 |Description| Expected Result | Confirmation of Expected Result |
 |-----------|---------|---------|
-|Logged in user enters URL to edit post not of there ownership | Redirect the user back to the homepage | ✓|
+|Logged in user enters URL to edit post not of there ownership | Redirect the user back to the homepage | ✓ test passed|
 |Logged out user enters URL of '/posts/create' to create a new post |Redirect the user back to the homepage |✓ test passed|
 |User button mashs (repeatedly presses fast) the post button on comment | The button is disabled after the first press and only one comment is posted | ✓ test passed|
 |User button mashs (repeatedly presses fast) the post button on create post | The button is disabled after the first press and only one post is created | ✓ test passed|
 
 ## Bugs <a name="fe-bugs"></a>
-There are no known bugs in the frontend application of this project. All bugs have been fixed and noted in the below section.
+#### There are no known bugs in the frontend application of this project. All bugs have been fixed and noted in the below section.
 
-- Problem 1: Error occuring in the console on the create and edit form pages
+- **Problem 1**: Error occuring in the console on the create and edit form pages
   - ![Console Error](/documentation/testing-imgs/bug-form-id.webp)
-- Fix 1: Remove the Bootstrap `controlId` prop from the bootstrap `<Form.Group>` component boilerplate code used for the Travel dropdown options section of the form.
+  - ***Fix 1***: Remove the Bootstrap `controlId` prop from the bootstrap `<Form.Group>` component boilerplate code used for the Travel dropdown options section of the form.
 ```Javascript 
   <Form.Group>
         <Form.Label>Travel Type</Form.Label>
@@ -192,11 +192,11 @@ There are no known bugs in the frontend application of this project. All bugs ha
 
 - **Problem 2**: Infinite Scroll not operating as expected
   - ![InfiniteScroll](/documentation/testing-imgs/bug-cors-infinitescroll.webp)
-- ***Fix 2***: Correct typo in the CLIENT_ORIGIN env.py file
+  - ***Fix 2***: Correct typo in the CLIENT_ORIGIN env.py file - from `https://` to `http://`
 
 - **Problem 3**:  If you repeatedly click very flash on the post button during comment post submission, the comment is posted multiple times.
   - ![Comment Repeat](/documentation/testing-imgs/bug-comment-repeat.webp)
-- ***Fix 3***: Add a `disablec` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment and Contact Us Modal pages/components too.
+  - ***Fix 3***: Add a `disabled` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment and Contact Us Modal pages/components too.
 ```JSX
 function CommentCreateForm(props) {
 ...
@@ -225,8 +225,8 @@ const handleSubmit = async (event) => {
 }
 ```
 
-- **Problem 4**: Contact Us Modal not closing on the 'cancel' or the 'x' buttons, as demonstrated in the Bootstrap documentation.
-- ***Fix 4***: Add this section of code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
+- **Problem 4**: Contact Us Modal not closing on the 'cancel' or the 'x' buttons, as demonstrated in the [Bootstrap documentation](https://react-bootstrap-v4.netlify.app/components/modal/).
+  - ***Fix 4***: Add this section of code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
 
 ## Responsiveness <a name="responsive"></a>
 This application is responsive to screens from small (iPhone SE) to large screens (Desktop Screens)
@@ -486,6 +486,6 @@ class CommentListViewTest(APITestCase):
 ## Bugs <a name="be-bugs"></a>
 There was only one minor bug in the backend API which is mentioned below. Beyond this bug there are no known bugs in the API.
 
-- Problem: The filter names not displaying on the api view - this is only visible when debug = True in development mode and does not cause any problems with the functioning of the API
+- **Problem**: The filter names not displaying on the api view - this is only visible when debug = True in development mode and does not cause any problems with the functioning of the API
   - ![Known Django Filter Bug](/documentation/testing-imgs/bug-known-djangofilter.webp)
-- Fix: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
+  - ***Fix***: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
