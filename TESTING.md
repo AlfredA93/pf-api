@@ -1,7 +1,34 @@
 # PhotoFootprint Testing
-# Frontend Testing
-## Validation
-### [W3C HTML Validator](https://validator.w3.org/#validate_by_input)
+
+## Contents
+
+- [Frontend Testing](#fe)
+  - [Validation](#fe-valid)
+    - [W3C HTML Validator](#html-valid)
+    - [W3C Jigsaw CSS Validator](#css-valid)
+    - [ESLint - Javascript Validation](#jsx-valid)
+    - [Lighthouse](#lighthouse)
+  - [Manual Testing](#fe-manual-testing)
+    - [Testing User Stories](#userstories)
+    - [Testing Forms](#forms)
+    - [Edge Cases](#edge-cases)
+  - [Bugs](#fe-bugs)
+  - [Responsiveness](#responsive)
+- [Backend Testing](#backend)
+  - [Validation](#be-valid)
+    - [Python - Flake 8](#py-valid)
+  - [Manual Testing](#be-manual)
+    - [Testing tasks from GitHub Project](#be-tasks) 
+    - [Admin Panel Tests](#be-admin)
+  - [Automated Testing](#be-auto)
+    - [Posts App](#auto-pass)
+    - [Comments App](#auto-comments)
+  - [Bugs](#be-bugs)
+
+
+# Frontend Testing<a name="fe"></a>
+## Validation<a name="fe-valid"></a>
+### [W3C HTML Validator](https://validator.w3.org/#validate_by_input) <a name="html-valid"></a>
 
 All HTML code in this project is valid
 
@@ -23,13 +50,13 @@ I tested the following urls
 - view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/signup
 - view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/signin
 
-### [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+### [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator) <a name="css-valid"></a>
 
-All CSS in this project is valid
+#### All CSS in this project is valid
 
 ![CSS Valid](/documentation/testing-imgs/css-valid.webp)
 
-I conducted this test by copying the contents of each css module into the [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+#### I conducted this test by copying the contents of each css module into the [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator)
 
 I tested the following files:
 
@@ -51,10 +78,12 @@ I tested the following files:
 - App.module.css
 - index.css
 
-### [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-For All Javascript and JSX Code, I installed the ESLint extension provided by Microsoft into my IDE to validate and check all of my code during the development process. There are no errors in the code. The link to the extension used is [here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+### [ESLint - Javascript Validation](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) <a name="jsx-valid"></a>
+All JSX and Javascript code is valid.
 
-### Lighthouse
+For All Javascript and JSX Code, I installed the ESLint extension provided by Microsoft into my IDE to validate and check all of my code during the development process. The link to the extension used is [here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+### Lighthouse <a name="lighthouse"></a>
 
 The scores for Google Dev Tools Lighthouse are as follows:
 - Performance - 86
@@ -66,8 +95,8 @@ The scores for Google Dev Tools Lighthouse are as follows:
 
 The performance score can vary depending on the speed of the API data delivery. The lowest score I received was 56, and the hightest was 90. Internet speeds can also affect this result, alongwith being in a window with many other tabs or in a window on its own. 86 was the most common result.
 
-## Manual Testing
-### Testing User Stories
+## Manual Testing <a name="fe-manual-testing"></a>
+### Testing User Stories <a name="userstories"></a>
 
 | Milestone |Title |Description	| Checked |
 |---------|------|-------------|-------|
@@ -104,6 +133,8 @@ The performance score can vary depending on the speed of the API data delivery. 
 |The Profile Page Front-End|	User Story - Update username and password	|As a **logged in user** I can **update my login details** so that **keep my data secure and in my own control**	|✓|
 |The Profile Page Front-End|	User Story - Contact Us	|As a **user** I can **see a contact us button** so that **interact directly with the app team to ask any questions or share views**|	✓|
 
+### Testing Forms <a name="forms"></a>
+
  ### Authorisation Forms - I tested the forms validation for correct login details, password matching, if a user already exists and for weak passwords. ✓ test passed
   - ![Sign In Form Validation](/documentation/testing-imgs/test-signin.webp)
   - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup.webp)
@@ -123,7 +154,7 @@ The performance score can vary depending on the speed of the API data delivery. 
 ### Page Not Found operating as intended. ✓ test passed
   - ![Page Not Found](/documentation/testing-imgs/test-pagenotfound.webp)
 
-### Edge Case Tests
+### Edge Case Tests <a name="edge-cases"></a>
 |Description| Expected Result | Confirmation of Expected Result |
 |-----------|---------|---------|
 |Logged in user enters URL to edit post not of there ownership | Redirect the user back to the homepage | ✓|
@@ -131,7 +162,7 @@ The performance score can vary depending on the speed of the API data delivery. 
 |User button mashs (repeatedly presses fast) the post button on comment | The button is disabled after the first press and only one comment is posted | ✓ test passed|
 |User button mashs (repeatedly presses fast) the post button on create post | The button is disabled after the first press and only one post is created | ✓ test passed|
 
-## Bugs
+## Bugs <a name="fe-bugs"></a>
 There are no known bugs in the frontend application of this project. All bugs have been fixed and noted in the below section.
 
 - Problem 1: Error occuring in the console on the create and edit form pages
@@ -197,12 +228,41 @@ const handleSubmit = async (event) => {
 - **Problem 4**: Contact Us Modal not closing on the 'cancel' or the 'x' buttons, as demonstrated in the Bootstrap documentation.
 - ***Fix 4***: Add this section of code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
 
-# Backend Testing
+## Responsiveness <a name="responsive"></a>
+This application is responsive to screens from small (iPhone SE) to large screens (Desktop Screens)
 
-## Validation
-### Python - Flake8
-To validate and check my code for errors I installed the Flake8 extension to my IDE which checks all the code written during the development process. This confirms there are no errors in the code. 
-### Manual Testing
+### iPhone SE Screenshots
+- ![iPhone SE Responsive](/documentation/testing-imgs/responsive-se.webp)
+- ![iPhone SE Responsive 2](/documentation/testing-imgs/responsive-se-2.webp)
+- ![iPhone SE Responsive 3](/documentation/testing-imgs/responsive-se-3.webp)
+- ![iPhone SE Responsive 4](/documentation/testing-imgs/responsive-se-4.webp)
+- ![iPhone SE Responsive 5](/documentation/testing-imgs/responsive-se-5.webp)
+
+### iPad Air Screenshots
+- ![iPad Air Responsive](/documentation/testing-imgs/responsive-ipad.webp)
+- ![iPad Air Responsive 2](/documentation/testing-imgs/responsive-ipad-2.webp)
+- ![iPad Air Responsive 3](/documentation/testing-imgs/responsive-ipad-3.webp)
+- ![iPad Air Responsive 4](/documentation/testing-imgs/responsive-ipad-4.webp)
+
+### Desktop Large Screenshots
+- ![Desktop Responsive](/documentation/testing-imgs/responsive-desktop.webp)
+- ![Desktop Responsive 2](/documentation/testing-imgs/responsive-desktop-2.webp)
+- ![Desktop Responsive 3](/documentation/testing-imgs/responsive-desktop-3.webp)
+
+# Backend Testing <a name="backend"></a>
+
+
+## Validation <a name="be-valid"></a>
+
+### Python - Flake8 <a name="py-valid"></a>
+
+All python code is valid.
+
+For all python Code, I installed the Flake8 extension provided by Microsoft into my IDE to validate and check all of my code during the development process. The link to the extension used is [here](https://marketplace.visualstudio.com/items?itemName=ms-python.flake8)
+## Manual Testing <a name="be-manual"></a>
+
+### Testing tasks from GitHub Project <a name="be-tasks"></a>
+
 | Milestone | Description	| Checked |
 |---------|-------------|-------|
 |Profiles API|	Users can **create** a profile 	|✓|
@@ -224,6 +284,8 @@ To validate and check my code for errors I installed the Flake8 extension to my 
 |Posts API App	|Users can **delete** their own posts	|✓|
 |Posts API App	|Users can't **delete** other user posts|	✓|
 
+### Admin Panel Tests <a name="be-admin"></a>
+
 | Milestone | Description	| Checked |
 |---------|-------------|-------|
 |Admin API |	Only admin's can log in to the admin panel |✓|
@@ -243,13 +305,14 @@ To validate and check my code for errors I installed the Flake8 extension to my 
 |Admin API |	Admin's can **delete** comments, posts and messages (contact us) through the admin panel|✓|
   - ![Test Delete Post](/documentation/testing-imgs/test-admin-4.webp)
 
-### Automated Testing
+## Automated Testing <a name="be-auto"></a>
+
 The automated tests run on the backend API were done under the guidance and instruction from the CodeInstitute drf-api walkthrough learning materials, so I credit code institute for their brilliant support in learning how to conduct automated tests.
 After manually testing the API during development, I wanted to conduct automated tests after deployment, to practice and develop further my knowledge of this. However after writing the first test for the Comment's model and running it, an error appeared because I had changed the Database system from postgres (default) to a cloud based database. At this point I chose not to alter the settings in my API settings.py file and to share the code written however state that this is only practice code and not tested. A copy of the error message is below this paragraph. In future I would edit the settings.py configuration to allow automated tests to happen, however, due to the time remaining on this project, it was not possible.
 
 ![Automated Testing Error](/documentation/testing-imgs/automated-testing.webp)<a name="testing-error"></a>
 
-### Code Examples of the automated tests completed, all passing.
+### Posts App - all tests passing. <a name="auto-pass"></a>
 
 | Milestone  |Description	| Checked |
 |---------|-------------|-------|
@@ -397,8 +460,8 @@ class PostDetailTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)  # 3
 ```
 
-### Comments Model Testing
-As stated in the initial introduction, the testing code for the Comments model was not completed due to the database being cloud based and not local as the testing application expected. (see error picture [above](#testing-error))
+### Comments App Automated Testing <a name="auto-comments"></a>
+As stated in the initial introduction, the testing code for the Comments model was not completed due to the database being cloud based and not local as the testing application expected. I carried out manual tests on these instead, however kept this code included to reference that this will be built upon in future development of the project. (see error picture [above](#testing-error))
 ```python
 class CommentListViewTest(APITestCase):
     """Post List Tests"""
@@ -420,30 +483,9 @@ class CommentListViewTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 ```
 
-### Bugs
+## Bugs <a name="be-bugs"></a>
 There was only one minor bug in the backend API which is mentioned below. Beyond this bug there are no known bugs in the API.
 
 - Problem: The filter names not displaying on the api view - this is only visible when debug = True in development mode and does not cause any problems with the functioning of the API
   - ![Known Django Filter Bug](/documentation/testing-imgs/bug-known-djangofilter.webp)
 - Fix: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
-
-# Responsiveness
-This application is responsive to screens from small (iPhone SE) to large screens (Desktop Screens)
-
-### iPhone SE Screenshots
-- ![iPhone SE Responsive](/documentation/testing-imgs/responsive-se.webp)
-- ![iPhone SE Responsive 2](/documentation/testing-imgs/responsive-se-2.webp)
-- ![iPhone SE Responsive 3](/documentation/testing-imgs/responsive-se-3.webp)
-- ![iPhone SE Responsive 4](/documentation/testing-imgs/responsive-se-4.webp)
-- ![iPhone SE Responsive 5](/documentation/testing-imgs/responsive-se-5.webp)
-
-### iPad Air Screenshots
-- ![iPad Air Responsive](/documentation/testing-imgs/responsive-ipad.webp)
-- ![iPad Air Responsive 2](/documentation/testing-imgs/responsive-ipad-2.webp)
-- ![iPad Air Responsive 3](/documentation/testing-imgs/responsive-ipad-3.webp)
-- ![iPad Air Responsive 4](/documentation/testing-imgs/responsive-ipad-4.webp)
-
-### Desktop Large Screenshots
-- ![Desktop Responsive](/documentation/testing-imgs/responsive-desktop.webp)
-- ![Desktop Responsive 2](/documentation/testing-imgs/responsive-desktop-2.webp)
-- ![Desktop Responsive 3](/documentation/testing-imgs/responsive-desktop-3.webp)
