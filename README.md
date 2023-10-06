@@ -85,7 +85,6 @@ React is based on components. So within the display view, many components can ma
 |Nav Bar Front-End|User Story - Account - Refresh Tokens|As a **user** I can **stay logged in until i click log out** so that **I can come back to the site with more ease**|Must Have|
 |Nav Bar Front-End|User Story - Nav Bar Conditional Rendering|As a **user** I can **see different navbar options depending if i’m logged in or not** so that **I can interact with the content or sign in/up if needed**|Must Have|
 |Nav Bar Front-End|User Story - Profile Image|As a **user** I can **set a profile image** so that **it's easy to differentiate between users**|Must Have|
-|Nav Bar Front-End|User Story - Contact Us|As a **user** I can **see a contact us button** so that **interact directly with the app team to ask any questions or share views**|Could Have|
 |Creating, Liking & Bookmarking Posts Front-End|User Story - Create posts| As a **logged in user** I can **create posts** so that **join in with the community**|Must Have|
 |Creating, Liking & Bookmarking Posts Front-End|User Story - View a post|As a **user** I can **click on a post to see a more detailed view of it** so that **learn more about it**|Must Have|
 |Creating, Liking & Bookmarking Posts Front-End|User Story - Like a post|As a **logged in user** I can **like a post** so that **show which posts interest me**|Must Have|
@@ -109,6 +108,7 @@ React is based on components. So within the display view, many components can ma
 |The Profile Page Front-End|User Story - See all posts by specific profile|As a **user** I can **see all posts created by specific profile** so that **interact with their content and/or follow/unfollow them**|Must Have|
 |The Profile Page Front-End|User Story - Edit profile|As a **logged in user** I can **edit my own profile** so that **I can change my data when I choose to**|Must Have|
 |The Profile Page Front-End|User Story - Update username and password|As a **logged in user** I can **update my login details** so that **keep my data secure and in my own control**|Must Have|
+|The Profile Page Front-End|User Story - Contact Us|As a **user** I can **see a contact us button** so that **interact directly with the app team to ask any questions or share views**|Could Have|
 
 ### Design Choices
 #### Colors
@@ -178,7 +178,7 @@ The code for the frontend of this project was inspired by the fantastic walkthro
 
 ### Code <a name="code-fe"></a>
 - Code Institute's [Moments](https://github.com/Code-Institute-Solutions/moments) code was used throughout the set up of this project. It was the prefect starting point for PhotoFootprint. Many of the core CRUD functions of the frontend between Moments and PhotoFootprint aligned, along with styling and composition. I editted, customised and added different buttons and styling to fit the specific needs of PhotoFootprint. 
-- Within the modal code, in order to fix a bug I needed to add the following code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
+- Within the modal code, in order to fix bug #4 in [TESTING.md](TESTING.md), I needed to add the following code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
 
 ### Helpsheets, Documentation and Useful Resources <a name="helpsheets"></a>
 - [React Bootstrap Components](https://react-bootstrap-v4.netlify.app/components/)
