@@ -19,14 +19,14 @@ For All Javascript and JSX Code, I installed the ESLint extension provided by Mi
 
 ## Bugs
 
+- Modal cancel/close button not working as intended.
+- Fix - link in credit
+
 # Backend Testing
 
 ## Validation
-
 ### Python - Flake8
 To validate and check my code for errors I installed the Flake8 extension to my IDE which checks all the code written during the development process. This confirms there are no errors in the code. 
-
-
 ### Manual Testing
 | Milestone | Description	| Checked |
 |---------|-------------|-------|
@@ -46,9 +46,27 @@ To validate and check my code for errors I installed the Flake8 extension to my 
 |Bookmarks API App|	Users can **create** a bookmark for a post when logged in	|✓|
 |Bookmarks API App|	Users can **delete** a bookmark on a post.	|✓|
 |Bookmarks API App|	Users can't **create** or **delete** bookmarks when logged out	|✓|
-|Admin API |	Admin's can delete comments, posts and messages (contact us) through the admin panel|✓|
-|Posts API App	|Users can delete their own posts	|✓|
-|Posts API App	|Users can't delete other user posts|	✓|
+|Posts API App	|Users can **delete** their own posts	|✓|
+|Posts API App	|Users can't **delete** other user posts|	✓|
+
+| Milestone | Description	| Checked |
+|---------|-------------|-------|
+|Admin API |	Only admin's can log in to the admin panel |✓|
+
+  - ![Test Admin Auth](/documentation/testing-imgs/test-admin-auth.webp)
+
+| Milestone | Description	| Checked |
+|---------|-------------|-------|
+|Admin API |	Admin's can **create** comments, posts and messages (contact us) through the admin panel|✓|
+
+  - ![Test Create Post](/documentation/testing-imgs/test-admin-3.webp)
+- If the admin doesn't enter the fields correctly, then these alerts will show - 
+  - ![Test Create Post Error Messages](/documentation/testing-imgs/test-admin-2.webp)
+
+| Milestone | Description	| Checked |
+|---------|-------------|-------|
+|Admin API |	Admin's can **delete** comments, posts and messages (contact us) through the admin panel|✓|
+  - ![Test Delete Post](/documentation/testing-imgs/test-admin-4.webp)
 
 ### Automated Testing
 The automated tests run on the backend API were done under the guidance and instruction from the CodeInstitute drf-api walkthrough learning materials, so I credit code institute for their brilliant support in learning how to conduct automated tests.
@@ -227,5 +245,9 @@ class CommentListViewTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 ```
 
-
 ### Bugs
+There was only one minor bug in the backend API which is mentioned below. Beyond this bug there are no known bugs in the API.
+
+- Problem: The filter names not displaying on the api view - this is only visible when debug = True in development mode and does not cause any problems with the functioning of the API
+  - Fix: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
+    - ![Known Django Filter Bug](/documentation/testing-imgs/bug-known-djangofilter.webp)
