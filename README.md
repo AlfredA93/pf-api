@@ -184,9 +184,16 @@ The code for the frontend of this project was inspired by the fantastic walkthro
 - [React Bootstrap Components](https://react-bootstrap-v4.netlify.app/components/)
 - React Bootstrap - [Modal](https://react-bootstrap-v4.netlify.app/components/modal/) 
 
-### Technology <a name="tech"></a>
-- [React](https://react.dev/learn)
-- [ReactBootstrap](https://react-bootstrap-v4.netlify.app/)
+### Technology and NPM Packages Used <a name="tech"></a>
+All frontend npm packages can be found [here](https://www.npmjs.com/). I have also linked the direct link of each package as well. 
+#### NPM Packages
+- [React](https://react.dev/learn) - For instant flexible changes to the website.
+- [JWT Decode](https://www.npmjs.com/package/jwt-decode) - For JSON Web Token Decoding - helps support local storage of user refresh tokens.
+- [Axios](https://www.npmjs.com/package/axios) - for handling get requests and response codes to the backend 
+- [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - for handling infinite scroll of the frontend whilst calling on paginated API data
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) - Handling the routing throughout the application
+#### Technologies/Websites supporting the development process
+- [ReactBootstrap](https://react-bootstrap.github.io/) - for quick, simple, responsive styling.
 - [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) for color palette design 
 - [Favicon creator](https://favicon.io/favicon-converter/)
 - [Resize pixels](https://www.resizepixel.com/download) - used when resizing logo
@@ -317,12 +324,12 @@ The API's main features within this app are CRUD based. ie. Create, Read, Update
 - Filter posts by followers 
 - Admin Panel, so the admin can have control over the content on the website. For example, if any harmful content is posted, the Admin can remove the content and/or user profile.
   - The Apps registered in the admin panel are Comments, Contact(Message Model), Posts and Profiles. 
-  - All of these are registered as read-only fields so the admin can only assess and delete any user content that is harmful.
+  - Comments, Contact and Profiles are registered with read-only fields so the admin can only assess and delete any user content that is harmful.
+  - Post App is registered with ***full CRUD functionality***, so the admin can Create, Read, Edit or Destroy any post on the platform.
 ### Future Features
 - Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
 - Enable video and larger files to be uploaded.
-- Enhanced filtering on the content through the admin panel.
-
+- Enhanced filtering of the content within the admin panel.
 
 ## Libraries Used <a name="libs-be"></a>
 - Cloudinary - [`pip install cloudinary==1.34.0`](https://pypi.org/project/cloudinary/) - Cloud based image storage
