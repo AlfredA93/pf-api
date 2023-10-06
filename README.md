@@ -61,7 +61,7 @@ Our scope for this project is small and aims to cover the basic functionality of
 The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. We needed to be flexible with the needs of the project due to the set deadline, which was why I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6). This meant that we had the core functionality of what we needed, but also allowed us to be flexible and address any bugs or errors if/when they arose.
 
 ### Structure <a name="structure-fe"></a>
-React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action.
+React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action, alongwith the Wireframes for a simple sketch of how they look.
 - Navigation Bar - This will feature throughout the entire site, staying consistent for the user.
 - Most Followed Accounts - Most Followed Accounts section will appear on every page (except the add/edit post page), below the navbar (on mobile/small screen devices) or to the right of the post(s) (on larger screens/desktops).
 - Post (when in Discover, Feed and Profile pages) - Each post will appear displaying the Image, Title, Travel Type and Summary, alongwith the Like icon and count, Comment Icon and count and the Bookmark Icon to save the bookmark. It will not display the main content of the post. On the Feed and Discover pages, the page has an Infinite Scroll feature that means more posts can be loaded without pagination (only if there are more than 10 posts on a page). ***This is a reuseable component, in order to keep the code DRY ('don't repeat yourself'). It's used in Post Individual, Discover, Feed and Profile pages***
@@ -112,7 +112,7 @@ React is based on components. So within the display view, many components can ma
 
 ### Design Choices
 #### Colors
-- I used [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) to help with color palette design. With the standout colors listed below. I chose to use Green as this is the colour societally associated with being friendly to the environment. The blues came in also as a reference to the blue sky.
+- I used [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) to help with color palette design. With the standout colors listed below. I chose to use Green as this is the colour societally associated with being friendly to the environment. The blues came in also as a reference to the blue sky and deep blue sea.
   - #00A000 Green
   - #3F4A3C Dark Grey with Green Hint
   - #00A847 Green
