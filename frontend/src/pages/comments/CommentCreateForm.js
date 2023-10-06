@@ -11,14 +11,14 @@ import { axiosRes } from "../../api/axiosDefaults";
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
   const handleSubmit = async (event) => {
-    setSubmitting(true);
+    setSending(true);
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
@@ -41,7 +41,7 @@ function CommentCreateForm(props) {
     } catch (err) {
       //console.log(err);
     }
-    setSubmitting(false);
+    setSending(false);
   };
 
   return (
@@ -63,7 +63,7 @@ function CommentCreateForm(props) {
       </Form.Group>
       <button
         className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!content.trim() || submitting}
+        disabled={!content.trim() || sending}
         type="submit"
       >
         post
