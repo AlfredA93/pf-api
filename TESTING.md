@@ -1,17 +1,71 @@
 # PhotoFootprint Testing
-
 # Frontend Testing
-
 ## Validation
+### [W3C HTML Validator](https://validator.w3.org/#validate_by_input)
 
-### HTML
+All HTML code in this project is valid
 
-### CSS
+![HTML Valid](/documentation/testing-imgs/html-valid.webp)
 
-### ESLint
-For All Javascript and JSX Code, I installed the ESLint extension provided by Microsoft into my IDE to validate and check all of my code during the development process. There are no errors in the code.
+I conducted this test by right clicking on each page, selecting View Page Source and then copying the core code across into the direct input section of the [W3C HTML Validator](https://validator.w3.org/#validate_by_input).
+
+![View Page Source Image](/documentation/testing-imgs/test-html.webp)
+
+
+I tested the following urls
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/feed
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/posts/create
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/bookmarks
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/posts/16
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/posts/16/edit
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/profiles/1
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/signup
+- view-source:https://photofootprint-combined-63d886cb4a04.herokuapp.com/signin
+
+### [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+
+All CSS in this project is valid
+
+![CSS Valid](/documentation/testing-imgs/css-valid.webp)
+
+I conducted this test by copying the contents of each css module into the [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/validator)
+
+I tested the following files:
+
+- Within the `styles` folder:
+    - Asset.module.css
+    - Avatar.modules.css
+    - Button.module.css
+    - Comment.module.css
+    - CommentCreateEditForm.module.css
+    - MoreDropdown.module.css
+    - NavBar.module.css
+    - NotFound.module.css
+    - Post.module.css
+    - PostCreateEditForm.module.css
+    - PostsPage.module.css
+    - Profile.module.css
+    - ProfilePage.module.css
+    - SignInUpForm.module.css
+- App.module.css
+- index.css
+
+### [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+For All Javascript and JSX Code, I installed the ESLint extension provided by Microsoft into my IDE to validate and check all of my code during the development process. There are no errors in the code. The link to the extension used is [here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ### Lighthouse
+
+The scores for Google Dev Tools Lighthouse are as follows:
+- Performance - 86
+- Accessibility - 94
+- Best Practices - 100
+- SEO - 100
+
+![Lighthouse](/documentation/testing-imgs/lighthouse.webp)
+
+The performance score can vary depending on the speed of the API data delivery. The lowest score I received was 56, and the hightest was 90. Internet speeds can also affect this result, alongwith being in a window with many other tabs or in a window on its own. 86 was the most common result.
+
 ## Manual Testing
 ### Testing User Stories
 
@@ -373,3 +427,23 @@ There was only one minor bug in the backend API which is mentioned below. Beyond
   - ![Known Django Filter Bug](/documentation/testing-imgs/bug-known-djangofilter.webp)
 - Fix: None, this is a known Django REST Framework bug and does not need any additional fix. To help understand which field is which, I commented in the code to give reference.
 
+# Responsiveness
+This application is responsive to screens from small (iPhone SE) to large screens (Desktop Screens)
+
+### iPhone SE Screenshots
+- ![iPhone SE Responsive](/documentation/testing-imgs/responsive-se.webp)
+- ![iPhone SE Responsive 2](/documentation/testing-imgs/responsive-se-2.webp)
+- ![iPhone SE Responsive 3](/documentation/testing-imgs/responsive-se-3.webp)
+- ![iPhone SE Responsive 4](/documentation/testing-imgs/responsive-se-4.webp)
+- ![iPhone SE Responsive 5](/documentation/testing-imgs/responsive-se-5.webp)
+
+### iPad Air Screenshots
+- ![iPad Air Responsive](/documentation/testing-imgs/responsive-ipad.webp)
+- ![iPad Air Responsive 2](/documentation/testing-imgs/responsive-ipad-2.webp)
+- ![iPad Air Responsive 3](/documentation/testing-imgs/responsive-ipad-3.webp)
+- ![iPad Air Responsive 4](/documentation/testing-imgs/responsive-ipad-4.webp)
+
+### Desktop Large Screenshots
+- ![Desktop Responsive](/documentation/testing-imgs/responsive-desktop.webp)
+- ![Desktop Responsive 2](/documentation/testing-imgs/responsive-desktop-2.webp)
+- ![Desktop Responsive 3](/documentation/testing-imgs/responsive-desktop-3.webp)
