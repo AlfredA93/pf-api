@@ -64,7 +64,7 @@ The whole project needed to be fulfilled within 19 days, therefore the API would
 React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action.
 - Navigation Bar - This will feature throughout the entire site, staying consistent for the user.
 - Most Followed Accounts - Most Followed Accounts section will appear on every page (except the add/edit post page), below the navbar (on mobile/small screen devices) or to the right of the post(s) (on larger screens/desktops).
-- Post (when in Discover, Feed and Profile pages) - Each post will appear displaying the Image, Title, Travel Type and Summary, alongwith the Like icon and count, Comment Icon and count and the Bookmark Icon to save the bookmark. It will not display the main content of the post. On the Feed and Discover pages, the page has an Infinite Scroll feature that means more posts can be loaded without pagination (only if there are more than 10 posts on a page)
+- Post (when in Discover, Feed and Profile pages) - Each post will appear displaying the Image, Title, Travel Type and Summary, alongwith the Like icon and count, Comment Icon and count and the Bookmark Icon to save the bookmark. It will not display the main content of the post. On the Feed and Discover pages, the page has an Infinite Scroll feature that means more posts can be loaded without pagination (only if there are more than 10 posts on a page). ***This is a reuseable component, in order to keep the code DRY ('don't repeat yourself'). It's used in Post Individual, Discover, Feed and Profile pages***
 - Post (once clicked into the post or clicking on the comment button) - Within the individual post page, the Post will now include the main content of the post, where the owner of the post can write more content for their post.
 - Comments - The comments section only appears on the individual post page, where users can now interact with the post and share their views with the owner of the post publically. This has Infinite Scroll, which loads older comments as you scroll down (only if there are more than 10 comments on a post).
 - Edit Post Dropdown - This dropdown menu will display on each post where there are current logged in user is the owner of the post on screen.
@@ -112,7 +112,7 @@ React is based on components. So within the display view, many components can ma
 
 ### Design Choices
 #### Colors
-- I used [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) to help with color palette design. With the standout colors listed below
+- I used [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) to help with color palette design. With the standout colors listed below. I chose to use Green as this is the colour societally associated with being friendly to the environment. The blues came in also as a reference to the blue sky.
   - #00A000 Green
   - #3F4A3C Dark Grey with Green Hint
   - #00A847 Green
