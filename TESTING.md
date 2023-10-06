@@ -13,12 +13,71 @@ For All Javascript and JSX Code, I installed the ESLint extension provided by Mi
 
 ### Lighthouse
 ## Manual Testing
+### Testing User Stories
 
 | Milestone |Title |Description	| Checked |
 |---------|------|-------------|-------|
+|Nav Bar Front-End|	User Story - Nav Bar 	|As a **user** I can **see the navbar consistently across all pages** so that **I can easily navigate around the site**	|✓|
+|Nav Bar Front-End|	User Story - Page Routing	|As a **user** I can **quickly switch between content** so that **I can see content change without having to refresh the page**|	✓|
+|Nav Bar Front-End|	User Story - Account Sign Up	|As a **user** I can **create an account** so that **I can join in the applications community and share my own posts/comments**	|✓|
+|Nav Bar Front-End|	User Story - Account Sign In	|As a **user** I can **sign in** so that **use the full functionality of the application**	|✓|
+|Nav Bar Front-End|	User Story - Account Logged In	|As a **user** I can **see my current logged in status** so that **log in or out if necessary**	|✓|
+|Nav Bar Front-End|	User Story - Account - Refresh Tokens	|As a **user** I can **stay logged in until i click log out** so that **I can come back to the site with more ease**	|✓|
+|Nav Bar Front-End|	User Story - Nav Bar Conditional Rendering|	As a **user** I can **see different navbar options depending if i’m logged in or not** so that **I can interact with the content or sign in/up if needed**|	✓|
+|Nav Bar Front-End|	User Story - Profile Image	|As a **user** I can **set a profile image** so that **it's easy to differentiate between users**	|✓|
+|Creating, Liking & Bookmarking Posts Front-End|	User Story - Create posts	| As a **logged in user** I can **create posts** so that **join in with the community**	|✓|
+|Creating, Liking & Bookmarking Posts Front-End|	User Story - View a post|	As a **user** I can **click on a post to see a more detailed view of it** so that **learn more about it**|	✓|
+|Creating, Liking & Bookmarking Posts Front-End|	User Story - Like a post|	As a **logged in user** I can **like a post** so that **show which posts interest me**	|✓|
+|Creating, Liking & Bookmarking Posts Front-End|	User Story - Bookmark a post|	As a **logged in user** I can **bookmark a post** so that **save it to view later**|	✓|
+|The Posts (& Feed) Page(s) Front-End|	User Story - View up to date posts|	As a **user** I can **see the most recent posts first** so that **I can check on the latest posts**	|✓|
+|The Posts (& Feed) Page(s) Front-End|	User Story - Search Filtering	|As a **user**, I can **search through posts with a search bar**, so that **I can find specific posts**|	✓|
+|The Posts (& Feed) Page(s) Front-End|	User Story - View bookmarked posts	|As a logged in **user** I can **see posts that I have booked** so that **I have an area for saved posts**	|✓|
+|The Posts (& Feed) Page(s) Front-End|	User Story - View Followed user posts	|As a **logged in user** I can **see posts from users that I follow** so that **I can see their most recent posts easily**	|✓|
+|The Posts (& Feed) Page(s) Front-End|	User Story - Infinite scroll	|As a **user** I can **scroll through images easily and simply** so that **the website doesn’t need unnecessary interaction**|	✓|
+|The Post Page Front-End|	User Story - Post page|	As a **user** I can **view a post’s page** so that **read more about the post and comment on it**	|✓|
+|The Post Page Front-End	|User Story - Edit/Delete post	|As a **post owner** I can **delete/edit the details of the post** so that **I can have control over my content**|	✓|
+|The Post Page Front-End|	User Story - Create comments	|As a **logged in user** I can **comment on a post** so that **I can share my thoughts about the post**	|✓|
+|The Post Page Front-End|	User Story - Comment timestamps|	As a **user** I can **see a timestamp on each comment** so that **I can see how recent each comment was**|	✓|
+|The Post Page Front-End|	User Story - View comments|	As a **user** I can **read comments** so that **see what other users think**|	✓|
+|The Post Page Front-End|	User Story - Delete comments	|As a **comment owner** I can **delete a comment** so that **I can control my comments on posts**	|✓|
+|The Post Page Front-End|	User Story - Edit comments	|As a **comment owner** I can **edit my comment** so that **I can change it whenever I choose**|	✓|
+|The Profile Page Front-End|	User Story - Profile page	|As a **user** I can **see other user profiles** so that **see who uses the app**	|✓|
+|The Profile Page Front-End|	User Story - Most followed profiles|	As a **user** I can **see the most followed profiles** so that **I can see popular profiles**	|✓|
+|The Profile Page Front-End|	User profile - stats	|As a **user** I can **see user specific statistic about: bio, number of posts, followers and following** so that **I can learn more about them**	|✓|
+|The Profile Page Front-End|	User Story - Follow/Unfollow a user|	As a **logged in user** I can **follow/unfollow other users** so that **change my own content feed and keep up to date with the content I want**	|✓|
+|The Profile Page Front-End|	User Story - See all posts by specific profile|	As a **user** I can **see all posts created by specific profile** so that **interact with their content and/or follow/unfollow them**	|✓|
+|The Profile Page Front-End|	User Story - Edit profile	|As a **logged in user** I can **edit my own profile** so that **I can change my data when I choose to**	|✓|
+|The Profile Page Front-End|	User Story - Update username and password	|As a **logged in user** I can **update my login details** so that **keep my data secure and in my own control**	|✓|
+|The Profile Page Front-End|	User Story - Contact Us	|As a **user** I can **see a contact us button** so that **interact directly with the app team to ask any questions or share views**|	✓|
+
+Authorisation Forms
+  - ![Sign In Form Validation](/documentation/testing-imgs/test-signin.webp)
+  - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup.webp)
+  - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup-2.webp)
+  - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup-3.webp)
+
+- Contact Form
+  - ![Contact Us Form](/documentation/testing-imgs/test-contact.webp)
+  - ![Contact Us Form](/documentation/testing-imgs/test-contact-email.webp)
+
+- Refresh Tokens
+  - ![Refresh Tokens](/documentation/testing-imgs/test-refresh.webp)
+
+- Create Post Form
+  - ![Create Post](/documentation/testing-imgs/test-create-post.webp)
+
+- Page Not Found
+  - ![Page Not Found](/documentation/testing-imgs/test-pagenotfound.webp)
+
+### Edge Case Tests
+|Description| Expected Result | Confirmation of Expected Result |
+|-----------|---------|---------|
+|Logged in user enters URL to edit post not of there ownership | Redirect the user back to the homepage | ✓|
+|Logged out user enters URL of '/posts/create' to create a new post |Redirect the user back to the homepage |✓|
+|User button mashs (repeatedly presses fast) the post button on comment | The button is disabled after the first press and only one comment is posted | ✓|
+|User button mashs (repeatedly presses fast) the post button on create post | The button is disabled after the first press and only one post is created | ✓|
 
 ## Bugs
-
 There are no known bugs in the frontend application of this project. All bugs have been fixed and noted in the below section.
 
 - Problem 1: Error occuring in the console on the create and edit form pages
@@ -52,7 +111,7 @@ There are no known bugs in the frontend application of this project. All bugs ha
 
 - **Problem 3**:  If you repeatedly click very flash on the post button during comment post submission, the comment is posted multiple times.
   - ![Comment Repeat](/documentation/testing-imgs/bug-comment-repeat.webp)
-- ***Fix 3***: Add a `disablec` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation.
+- ***Fix 3***: Add a `disablec` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment and Contact Us Modal pages/components too.
 ```JSX
 function CommentCreateForm(props) {
 ...
@@ -80,6 +139,10 @@ const handleSubmit = async (event) => {
 ... )
 }
 ```
+
+- **Problem 4**: Contact Us Modal not closing on the 'cancel' or the 'x' buttons, as demonstrated in the Bootstrap documentation.
+- ***Fix 4***: Add this section of code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
+
 # Backend Testing
 
 ## Validation
