@@ -50,32 +50,32 @@ For All Javascript and JSX Code, I installed the ESLint extension provided by Mi
 |The Profile Page Front-End|	User Story - Update username and password	|As a **logged in user** I can **update my login details** so that **keep my data secure and in my own control**	|✓|
 |The Profile Page Front-End|	User Story - Contact Us	|As a **user** I can **see a contact us button** so that **interact directly with the app team to ask any questions or share views**|	✓|
 
-Authorisation Forms
+ ### Authorisation Forms - I tested the forms validation for correct login details, password matching, if a user already exists and for weak passwords. ✓ test passed
   - ![Sign In Form Validation](/documentation/testing-imgs/test-signin.webp)
   - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup.webp)
   - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup-2.webp)
   - ![Sign Up Form Validation](/documentation/testing-imgs/test-signup-3.webp)
 
-- Contact Form
+### Contact Form - I tested to see if we could send the form without any fields being filled and if the email field wasn't entered correctly. ✓ test passed
   - ![Contact Us Form](/documentation/testing-imgs/test-contact.webp)
   - ![Contact Us Form](/documentation/testing-imgs/test-contact-email.webp)
 
-- Refresh Tokens
+### Refresh Tokens - I checked to see whether the Authorisation Refresh Token is being stored in local storage. ✓ test passed
   - ![Refresh Tokens](/documentation/testing-imgs/test-refresh.webp)
 
-- Create Post Form
+### Create Post Form - I tested the fields required fields to be populated and if an image is over 2MB. ✓ test passed
   - ![Create Post](/documentation/testing-imgs/test-create-post.webp)
 
-- Page Not Found
+### Page Not Found operating as intended. ✓ test passed
   - ![Page Not Found](/documentation/testing-imgs/test-pagenotfound.webp)
 
 ### Edge Case Tests
 |Description| Expected Result | Confirmation of Expected Result |
 |-----------|---------|---------|
 |Logged in user enters URL to edit post not of there ownership | Redirect the user back to the homepage | ✓|
-|Logged out user enters URL of '/posts/create' to create a new post |Redirect the user back to the homepage |✓|
-|User button mashs (repeatedly presses fast) the post button on comment | The button is disabled after the first press and only one comment is posted | ✓|
-|User button mashs (repeatedly presses fast) the post button on create post | The button is disabled after the first press and only one post is created | ✓|
+|Logged out user enters URL of '/posts/create' to create a new post |Redirect the user back to the homepage |✓ test passed|
+|User button mashs (repeatedly presses fast) the post button on comment | The button is disabled after the first press and only one comment is posted | ✓ test passed|
+|User button mashs (repeatedly presses fast) the post button on create post | The button is disabled after the first press and only one post is created | ✓ test passed|
 
 ## Bugs
 There are no known bugs in the frontend application of this project. All bugs have been fixed and noted in the below section.
