@@ -30,9 +30,12 @@ function SignInForm() {
 
   const [errors, setErrors] = useState({});
 
+  const [sending, setSending] = useState(false);
+
   const history = useHistory();
 
   const handleSubmit = async (event) => {
+    setSending(true);
     event.preventDefault();
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
@@ -42,6 +45,7 @@ function SignInForm() {
     } catch (err) {
       setErrors(err.response?.data);
     }
+    setSending(false);
   };
 
   const handleChange = (event) => {
@@ -94,6 +98,7 @@ function SignInForm() {
             <Button
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
+              disabled={sending}
             >
               Sign in
             </Button>
