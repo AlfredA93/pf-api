@@ -1,4 +1,6 @@
 # PhotoFootprint
+
+![PhotoFootprint](/documentation/heroimage.webp)
 ## Introduction
 PhotoFootprint is a photo based social media platform for travellers. It's core goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. You can see the live website [here](https://photofootprint-combined-63d886cb4a04.herokuapp.com/)
 ## Contents
@@ -22,7 +24,7 @@ The README is split into 9 different parts - Overall Project Goals, Frontend, Ba
     - [Structure](#structure-be)
     - [ERD](#erd)
   - [Features](#be-features)
-  - [Future Features](#be-future)
+    - [Future Features](#be-future)
 - [Testing](TESTING.md)
 - [Deployment](#deploy)
 - [Frontend Credits](#creds)
@@ -60,7 +62,7 @@ The goal within the frontend part of this project is to create a frontend React 
 ### Scope <a name="scope-fe"></a>
 Our scope for this project is small and aims to cover the basic functionality of what a social media application needs, this is due to having a short timeframe to meet the deadline for this project. The project would be further developed upon post-production. 
 
-The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. We needed to be flexible with the needs of the project due to the set deadline, which was why I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6). This meant that we had the core functionality of what we needed, but also allowed us to be flexible and address any bugs or errors if/when they arose.
+The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. We needed to be flexible with the needs of the project due to the set deadline, which was why I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the PhotoFootprint GitHub Project. This meant that we had the core functionality of what we needed, but also allowed us to be flexible and address any bugs or errors if/when they arose. Here is a link to the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6) and [PhotoFootprint Milestones](https://github.com/AlfredA93/pf-api/milestones).
 
 ### Structure <a name="structure-fe"></a>
 React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action, alongwith the wireframe for a simple sketch of how they look.
@@ -130,10 +132,9 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
 
 ![GoogleFonts](/documentation/frontend-imgs/fonts.webp)
 
-### Wireframes
+### Wireframe
 
-- Add wireframe here
-
+![wireframe](/documentation/frontend-imgs/wireframe.webp)
 
 ## Features <a name="features"></a>
 - Navigation Bar. This allows the user to navigate consistently throughout the site. The Nav Bar will show two different sets of icons depending on whether the user is logged in or logged out. 
@@ -145,13 +146,13 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
       - Log Out
       - Profile (see all of my posts in one place, and also where I can edit my profile)
   - ![navbar logged in](/documentation/frontend-imgs/navbar-loggedin.webp)
-  - If the user is using a mobile or samall screened device, a burger menu will show
-  - ![navbar burger](/documentation/frontend-imgs/navbar-burger.webp)
   - When the user is logged out, the following icons will show:
       - Discover
       - Sign In
       - Sign Up
   - ![navbar logged out](/documentation/frontend-imgs/navbar-loggedout.webp)
+    - If the user is using a mobile or samall screened device, a burger menu will show
+  - ![navbar burger](/documentation/frontend-imgs/navbar-burger.webp)
 - Discover Page (Home Page) - This is where all the posts can be seen and searched through. This is where users can discover new places, new posts, new users, new people to follow and be inspired by, and maybe even inspire! It has Infinite Scroll, so users can easily and simply scroll through posts without having to deal with pagination or page refreshes. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
   - ![discover page](/documentation/frontend-imgs/discover-page.webp)
 - Feed - This is where the users can see all the posts from the user's they follow. It has all the same features of the Discover Page, but is filtered by the profiles that you follow. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
@@ -172,7 +173,7 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
   - ![sign up page](/documentation/frontend-imgs/sign-up.webp)
 - Sign In - This is a sign in form with backend validation which show any errors in frontend alert banners.
   - ![sign in page](/documentation/frontend-imgs/sign-in.webp)
-- Log Out - This is a simple button to trigger logging out
+- Log Out - This is a simple button located on the Navigation Bar to trigger logging out.
 - Add (add post) - On this page, users can upload a post. There is frontend and backend validation to check the data provided, to see if the file is an image or not. If there is a file at all. If the required fields are filled. If there are any errors, there are Alert banners which highlight the field with the error.
   - ![add post](/documentation/frontend-imgs/add-post.webp)
 - Edit Post - On this page, users can edit a post. The fields are automatically filled with the data the post already has. There is frontend and backend validation to check the data provided, to see if the file is an image or not. If there is a file at all. If the required fields are filled. If there are any errors, there are Alert banners which highlight the field with the error. User's can edit the post from anywhere on the platform where the user can see their own post.
