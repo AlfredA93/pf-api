@@ -2,7 +2,7 @@
 ## Introduction
 PhotoFootprint is a photo based social media platform for travellers. It's core goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. You can see the live website [here](https://photofootprint-combined-63d886cb4a04.herokuapp.com/)
 ## Contents
-The README is split into 7 different parts - Overall Project Goals, Frontend, Backend, Deployment, Testing, Overall Learning Outcomes and Acknowledgements. These are all shown in the Contents list below. Testing is shown on a seperate markdown file linked within the Testing section below.
+The README is split into 9 different parts - Overall Project Goals, Frontend, Backend, Testing, Deployment, Frontend Credits, Backend Credits, Acknowledgements and Overall Learning Outcomes. These are all shown in the Contents list below. Testing is shown on a seperate markdown file linked within the Testing section below.
 
 - [Overall Project Goals](#overall)
 - [Frontend](#frontend)
@@ -14,11 +14,6 @@ The README is split into 7 different parts - Overall Project Goals, Frontend, Ba
     - [User Stories](#user-stories)
   - [Features](#features)
     - [Future Features](#future)
-  - [Credits](#creds)
-    - [Code](#code-fe)
-    - [Helpsheets, Documentation and Useful Resources](#helpsheets)
-  - [Techonology](#tech)
-  - [Media](#media-fe)
 - [Backend](#backend)
   - [Design](#design-be)
     - [Agile](#agile-be)
@@ -26,16 +21,23 @@ The README is split into 7 different parts - Overall Project Goals, Frontend, Ba
     - [Tasks](#tasks)
     - [Structure](#structure-be)
     - [ERD](#erd)
-  - [Libraries Used](#libs-be)
-  - [Credits](#cred-be)
+  - [Features](#be-features)
+  - [Future Features](#be-future)
+- [Testing](TESTING.md)
+- [Deployment](#deploy)
+- [Frontend Credits](#creds)
+  - [Code](#code-fe)
+  - [Helpsheets, Documentation and Useful Resources](#helpsheets)
+  - [Techonology and NPM Packages Used](#tech)
+  - [Media](#media-fe)
+- [Backend Credits](#cred-be)
     - [Code](#code-be)
     - [Helpsheets, Documentation and Useful Resources](#helps-be)
+    - [Libraries Used](#libs-be)
     - [Techonology](#tech-be)
     - [Media](#media-be)
-- [Deployment](#deploy)
-- [Testing](TESTING.md)
-- [Overall Learning Outcomes](#outcomes)
 - [Acknowledgements](#acknow)
+- [Overall Learning Outcomes](#outcomes)
 
 # Overall Project Goals <a name="overall"></a>
 PhotoFootprint's overall goal is to help bring awareness to Eco friendly methods of transportation, allowing the community to share their own experiences easily and simply on the application. User's can upload posts which can be liked, bookmarked (saved) and commented on. User's can follow other user's to stay upto date with their friends and favourite travellers. The application will have a fully CRUD functional API with frontend that serves the API JSON data in a user friendly manner.
@@ -61,7 +63,7 @@ Our scope for this project is small and aims to cover the basic functionality of
 The whole project needed to be fulfilled within 19 days, therefore the API would need to be finished within 5-6 days (realistically), to allow more time spent on the frontend React app (8-9 days), allowing a minimum of 3-4 days for README documentation to be fulfilled at the end. We needed to be flexible with the needs of the project due to the set deadline, which was why I applied labels of 'Could Have', 'Should Have' and 'Must Have' to give priority to the tasks set out in the [PhotoFootprint GitHub Project](https://github.com/users/AlfredA93/projects/6). This meant that we had the core functionality of what we needed, but also allowed us to be flexible and address any bugs or errors if/when they arose.
 
 ### Structure <a name="structure-fe"></a>
-React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action, alongwith the Wireframes for a simple sketch of how they look.
+React is based on components. So within the display view, many components can make up the whole. See the [Features](#features) section for screenshots of the below components in action, alongwith the wireframe for a simple sketch of how they look.
 - Navigation Bar - This will feature throughout the entire site, staying consistent for the user.
 - Most Followed Accounts - Most Followed Accounts section will appear on every page (except the add/edit post page), below the navbar (on mobile/small screen devices) or to the right of the post(s) (on larger screens/desktops).
 - Post (when in Discover, Feed and Profile pages) - Each post will appear displaying the Image, Title, Travel Type and Summary, alongwith the Like icon and count, Comment Icon and count and the Bookmark Icon to save the bookmark. It will not display the main content of the post. On the Feed and Discover pages, the page has an Infinite Scroll feature that means more posts can be loaded without pagination (only if there are more than 10 posts on a page). ***This is a reuseable component, in order to keep the code DRY ('don't repeat yourself'). It's used in Post Individual, Discover, Feed and Profile pages***
@@ -130,7 +132,7 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
 
 ### Wireframes
 
-- Add wireframes here
+- Add wireframe here
 
 
 ## Features <a name="features"></a>
@@ -142,66 +144,69 @@ The font [*Assistant*](https://fonts.google.com/specimen/Assistant) from GoogleF
       - Saved (see posts that I have bookmarked)
       - Log Out
       - Profile (see all of my posts in one place, and also where I can edit my profile)
+  - ![navbar logged in](/documentation/frontend-imgs/navbar-loggedin.webp)
+  - If the user is using a mobile or samall screened device, a burger menu will show
+  - ![navbar burger](/documentation/frontend-imgs/navbar-burger.webp)
   - When the user is logged out, the following icons will show:
       - Discover
       - Sign In
       - Sign Up
+  - ![navbar logged out](/documentation/frontend-imgs/navbar-loggedout.webp)
 - Discover Page (Home Page) - This is where all the posts can be seen and searched through. This is where users can discover new places, new posts, new users, new people to follow and be inspired by, and maybe even inspire! It has Infinite Scroll, so users can easily and simply scroll through posts without having to deal with pagination or page refreshes. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
+  - ![discover page](/documentation/frontend-imgs/discover-page.webp)
 - Feed - This is where the users can see all the posts from the user's they follow. It has all the same features of the Discover Page, but is filtered by the profiles that you follow. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
+  - ![search feed](/documentation/frontend-imgs/feed-page.webp)
 - Search Bar - The search bar features on the Discover, Feed, and Saved pages. Users can search through all the posts within the current page environment(ie. Discover, Feed or Saved Page) by Title, Travel type and author/owner.
+  - ![search title](/documentation/frontend-imgs/search-title.webp)
+  - ![search travel](/documentation/frontend-imgs/search-travel.webp)
+  - ![search owner](/documentation/frontend-imgs/search-owner.webp)
 - Saved (Bookmarked) - This page will show all of the posts that the user has saved for future viewing. I felt it important to differentiate between likes and bookmarks, as not everyone post that you like, you want to save for later. Where as with bookmarks, you can save the posts you really love for later. Users can only see the basic data from the post, the Image, Title, Summary, Comment count, Like count and Travel Type. They cannot see the Content of the post.
+  - ![saved page](/documentation/frontend-imgs/saved.webp)
 - Post (individual page) - On this page, users can see the full content of the post, including the Content text of the post, this feature, alongwith commenting, sets this page apart from the Discover, Feed and Saved Pages. As aforementioned, users can comment on posts on this page.
-- Likes - This feature is a simple like button, so users can share their encouragement for posts they enjoy.
+  - ![post individual page](/documentation/frontend-imgs/post-individual.webp)
+- Likes - This feature is a simple like button, so users can share their encouragement for posts they enjoy. Users must be logged in to user this function.
+  - ![like icon logged out](/documentation/frontend-imgs/post-like-logout.webp)
+- Bookmark Icon - This feature is a bookmark button where users can save the posts they like for viewing later. Users must be logged in to user this function.
+  - ![bookmark icon logged out](/documentation/frontend-imgs/post-bookmark-loggedout.webp)
 - Sign Up - This is a sign up form with backend validation which show any errors in frontend alert banners.
+  - ![sign up page](/documentation/frontend-imgs/sign-up.webp)
 - Sign In - This is a sign in form with backend validation which show any errors in frontend alert banners.
+  - ![sign in page](/documentation/frontend-imgs/sign-in.webp)
 - Log Out - This is a simple button to trigger logging out
 - Add (add post) - On this page, users can upload a post. There is frontend and backend validation to check the data provided, to see if the file is an image or not. If there is a file at all. If the required fields are filled. If there are any errors, there are Alert banners which highlight the field with the error.
+  - ![add post](/documentation/frontend-imgs/add-post.webp)
 - Edit Post - On this page, users can edit a post. The fields are automatically filled with the data the post already has. There is frontend and backend validation to check the data provided, to see if the file is an image or not. If there is a file at all. If the required fields are filled. If there are any errors, there are Alert banners which highlight the field with the error. User's can edit the post from anywhere on the platform where the user can see their own post.
+  - ![edit post icon](/documentation/frontend-imgs/post-edit-icon.webp)
+  - ![edit post](/documentation/frontend-imgs/edit-post.webp)
 - Delete Post - This simple button deletes the post 
+  - ![delete post icon](/documentation/frontend-imgs/post-delete.webp)
 - Comments - Users create/edit or delete comments on posts
+  - ![comments](/documentation/frontend-imgs/comments.webp)
+- Comments with infinite scroll
+  - ![comments infinite scroll](/documentation/frontend-imgs/comments-inf.webp)
 - Profiles - Users can see the profile page inc profile statistics of that specific profile. If they are viewing a different user's profile (ie. if Alfred is looking at Patrick's profile), a follow button will show on the profile. If they are viewing their own profile the edit profile dropdown menu (three vertical dots) will show along with a Contact Us button.
-- Edit Profile - Users can edit they're username, bio and password in the profile section of the website. They can only do this on their own profile and not on other user's profiles.
+  - ![profile owner](/documentation/frontend-imgs/profile-contact.webp)
+  - ![profile other](/documentation/frontend-imgs/profile-other.webp)
 - Contact Us Modal - This modal is for user's to get in contact with the PhotoFootprint team. Once the form is filled out and sent, the API backend will send an automatic email through to the user from the data provided in the form.
-  - Contact Us Email
-    - ![Contact Us Email](documentation/frontend-imgs/contact-email.webp)
-- Most followed profiles - This shows a list of the 10 most followed profiles on the website alongwith their current follower counts.
-- Follow/Unfollow profiles - Through either the most followed profiles component or the profiles page, users can follow or unfollow accounts. 
+  - ![Contact Us modal](/documentation/frontend-imgs/contact-modal.webp)
+- Contact Us Email
+  - ![Contact Us Email](documentation/frontend-imgs/contact-email.webp)
+- Edit Profile - Users can edit they're username, bio and password in the profile section of the website. They can only do this on their own profile and not on other user's profiles.
+  - ![edit profile](/documentation/frontend-imgs/edit-profile.webp)
+  - ![edit user profile](/documentation/frontend-imgs/edit-profile-user.webp)
+  - ![edit user pass](/documentation/frontend-imgs/edit-profile-password.webp)
+
+- Most followed profiles, Follow/Unfollow profiles - This shows a list of the 10 most followed profiles on the website alongwith their current follower counts. Through either the most followed profiles component or the profiles page, users can follow or unfollow accounts. 
+  - ![desktop most followed](/documentation/frontend-imgs/most-followed.webp)
+  - ![medium to small most followed profiles](/documentation/frontend-imgs/most-followed-small.webp)
+  - ![mobile most followed profiles](/documentation/frontend-imgs//most-followed-extra-small.webp)
+
 ### Future Features <a name="future"></a>
 
 - Add a map which shows the journey in where the user has travelled.
 - Live Location Sharing (which city/country they're currently travelling through)
 - Video upload
 - Live video sharing
-
-## Credits <a name="creds"></a>
-The code for the frontend of this project was inspired by the fantastic walkthrough project conducted by the [CodeInstitute]((https://codeinstitute.net/de/)) Team. The frontend React app called *Moments* (link to which is found in the Code section below) was the perfect grounding for PhotoFootprint to build on. 
-
-### Code <a name="code-fe"></a>
-- Code Institute's [Moments](https://github.com/Code-Institute-Solutions/moments) code was used throughout the set up of this project. It was the prefect starting point for PhotoFootprint. Many of the core CRUD functions of the frontend between Moments and PhotoFootprint aligned, along with styling and composition. I editted, customised and added different buttons and styling to fit the specific needs of PhotoFootprint. 
-- Within the modal code, in order to fix bug #4 in [TESTING.md](TESTING.md), I needed to add the following code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
-
-### Helpsheets, Documentation and Useful Resources <a name="helpsheets"></a>
-- [React Bootstrap Components](https://react-bootstrap-v4.netlify.app/components/)
-- React Bootstrap - [Modal](https://react-bootstrap-v4.netlify.app/components/modal/) 
-
-### Technology and NPM Packages Used <a name="tech"></a>
-All frontend npm packages can be found [here](https://www.npmjs.com/). I have also linked the direct link of each package as well. 
-#### NPM Packages
-- [React](https://react.dev/learn) - For instant flexible changes to the website.
-- [JWT Decode](https://www.npmjs.com/package/jwt-decode) - For JSON Web Token Decoding - helps support local storage of user refresh tokens.
-- [Axios](https://www.npmjs.com/package/axios) - for handling get requests and response codes to the backend 
-- [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - for handling infinite scroll of the frontend whilst calling on paginated API data
-- [React Router DOM](https://www.npmjs.com/package/react-router-dom) - Handling the routing throughout the application
-#### Technologies/Websites supporting the development process
-- [ReactBootstrap](https://react-bootstrap.github.io/) - for quick, simple, responsive styling.
-- [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) for color palette design 
-- [Favicon creator](https://favicon.io/favicon-converter/)
-- [Resize pixels](https://www.resizepixel.com/download) - used when resizing logo
-- [Remove background](https://www.remove.bg/upload) in image - used for logo background removal 
-### Media <a name="media-fe"></a>
-- All post images in the base content are from [Unsplash](https://unsplash.com/)
-- Upload icon found on the Add post page and search icon found when no search results appear and on '404 Page Not Found' - [PNG Tree](https://pngtree.com/)
-- Foot Icon in Logo	- [FreePik](https://freepik.com)
 
 # Backend - PhotoFootprint API <a name="backend"></a>
 The backend of this project is a Django REST API application. The following subsections are all of the Design, Features & Credits of the backend part of this project.
@@ -256,7 +261,6 @@ The API will have appropriate apps to fulfil the following tasks:
 - Create, Read and Delete functionality on Bookmarks **(Should Have)**
 - Create functionality on Contact Us form. **(Could Have)**
 
-
 ### Structure (backend) <a name="structure-be"></a>
 The structure of the API needed to be organised, so we could make sure that all the relationships between the models could be mapped before coding. Below in the [ERD](#erd) section, you can see the relationships between the models with the arrows.
 
@@ -310,7 +314,7 @@ Filters - We need filters for the following:
 #### ERD <a name="erd"></a>
 ![Model Image](documentation/backend-imgs/erd.webp)
 
-## Features
+## Features <a name="be-features"></a>
 The API's main features within this app are CRUD based. ie. Create, Read, Update and Destroy. The following list shows what this API can provide through various request/post/put & delete calls.
 - Add/Edit/Delete a Post
 - Add/Edit/Delete a Comment 
@@ -324,50 +328,19 @@ The API's main features within this app are CRUD based. ie. Create, Read, Update
 - Filter posts by followers 
 - Admin Panel, so the admin can have control over the content on the website. For example, if any harmful content is posted, the Admin can remove the content and/or user profile.
   - The Apps registered in the admin panel are Comments, Contact(Message Model), Posts and Profiles. 
+   - Admin login panel if you add `/admin` to the root url.
+    - ![admin login](/documentation/backend-imgs/admin-login.webp)
+    - ![admin home](/documentation/backend-imgs/admin.webp)
   - Comments, Contact and Profiles are registered with read-only fields so the admin can only assess and delete any user content that is harmful.
+    - ![admin contact us](/documentation/backend-imgs/admin-contact.webp)
   - Post App is registered with ***full CRUD functionality***, so the admin can Create, Read, Edit or Destroy any post on the platform.
-### Future Features
+    - ![post admin list](/documentation/backend-imgs/admin-posts.webp)
+    - ![post admin create](/documentation/backend-imgs/admin-post-create.webp)
+
+### Future Features <a name="be-future"></a>
 - Add a maps app and map model for setting post coordinates, so that users can store their journey's and share them on each post.
 - Enable video and larger files to be uploaded.
 - Enhanced filtering of the content within the admin panel.
-
-## Libraries Used <a name="libs-be"></a>
-- Cloudinary - [`pip install cloudinary==1.34.0`](https://pypi.org/project/cloudinary/) - Cloud based image storage
-- Django Database Url - [`pip install dj-database-url==0.5.0`](https://pypi.org/project/dj-database-url/0.5.0/) - Supporting cloud based database management
-- Django REST Auth - [`pip install dj-rest-auth==2.1.9`](https://pypi.org/project/dj-rest-auth/2.1.9/) - Account authentication for Django REST
-- Django v.3.2 - [`pip install Django==3.2.21`](https://pypi.org/project/Django/3.2.21/) - Django Framework
-- Django AllAuth - [`pip install django-allauth==0.44.0`](https://pypi.org/project/django-allauth/0.44.0/) - Account authorisation 
-- Django Cloudinary Storage - [`pip install django-cloudinary-storage==0.3.0`](https://pypi.org/project/django-cloudinary-storage/) - Supporting Cloudinary Image Storage
-- Django CORS Headers - [`pip install django-cors-headers==4.2.0`](https://pypi.org/project/django-cors-headers/) - Support Cross Origin Resource Sharing
-- Django Filter - [`pip install django-filter==23.3`](https://pypi.org/project/django-filter/) - Filtering database model fields
-- Django REST Framework - [`pip install djangorestframework==3.14.0`](https://pypi.org/project/djangorestframework/) - Django REST Framework for backend data management
-- Django REST Simple JSON Tokens - [`pip install djangorestframework-simplejwt==5.3.0`](https://pypi.org/project/djangorestframework-simplejwt/) - Encryption and decryption of JSON web tokens.
-- Gunicorn - [`pip install gunicorn==21.2.0`](https://pypi.org/project/gunicorn/) - Supporting Deployment to Heroku
-- Pillow - [`pip install Pillow==10.0.1`](https://pypi.org/project/Pillow/) - Supporting image processing 
-- Psycopg2 - [`pip install psycopg2==2.9.7`](https://pypi.org/project/psycopg2/) - Supporting Deployment to Heroku
-
-## Credits <a name="cred-be"></a>
-PhotoFootprint was inspired and supported by the brilliant walkthrough project conducted by the Team at [CodeInstitute](https://codeinstitute.net/de/). The API built in the *drf-api* walkthrough (linked below in **Code** section) was the perfect grounding for PhotoFootprint to set up from. 
-
-### Code <a name="code-be"></a>
-- Code Institute's [drf-api](https://github.com/Code-Institute-Solutions/drf-api) code was the basis for PhotoFootprint API. [drf-api](https://github.com/Code-Institute-Solutions/drf-api) was the perfect fit for what PhotoFootprint's goal was, so I editted, customised and added models and code to fit the specific needs of PhotoFootprint. 
-
-### Helpsheets, Documentation and Useful Resources <a name="helps-be"></a>
-- [AbstractAPI - Django Send Email](https://www.abstractapi.com/guides/django-send-email): Brilliant helpsheet and tutorial for setting up Django `send_mail()` functionality.
-- [Django send_mail documentation](https://docs.djangoproject.com/en/3.2/topics/email/)
-- [Django REST Auth Documentation](https://dj-rest-auth.readthedocs.io/en/latest/installation.html)
-- [Adding contents table to README file](https://community.atlassian.com/t5/Bitbucket-questions/How-to-write-a-table-of-contents-in-a-Readme-md/qaq-p/673363)
-- [Django Admin Documentation](https://docs.djangoproject.com/en/4.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields) - Read-only fields
-
-### Technology <a name="tech-be"></a>
-- [Cloudinary](www.cloudinary.com): For image storage
-- [ElephantSQL](www.elephantsql.com): For database storage and management
-- [Djecrety](https://djecrety.ir/): Django Secret Key Generator
-- [Heroku](https://heroku.com): Heroku hosting platform.
-- [Tiny Img](https://tiny-img.com/webp/) - convert png to webp images for README documentation screenshots.
-
-### Media <a name="media-be"></a>
-- Default Profile and Post images are from [CodeInstitute](https://codeinstitute.net/de/) [drf-api](https://github.com/Code-Institute-Solutions/drf-api) walkthrough learning materials.
 
 ## Deployment <a name="deploy"></a>
 
@@ -390,6 +363,76 @@ This project was deployed to Heroku. To prepare the backend for this we need to 
 ## [Testing](TESTING.md)
 All testing and code validation is shown in the seperate [TESTING.md](TESTING.md) file.
 
-# Overall Learning Outcomes <a name="outcomes"></a>
+## Front-end Credits <a name="creds"></a>
+The code for the frontend of this project was inspired by the fantastic walkthrough project conducted by the [CodeInstitute]((https://codeinstitute.net/de/)) Team. The frontend React app called *Moments* (link to which is found in the Code section below) was the perfect grounding for PhotoFootprint to build on. 
+
+### Code <a name="code-fe"></a>
+- Code Institute's [Moments](https://github.com/Code-Institute-Solutions/moments) code was used throughout the set up of this project. It was the prefect starting point for PhotoFootprint. Many of the core CRUD functions of the frontend between Moments and PhotoFootprint aligned, along with styling and composition. I editted, customised and added different buttons and styling to fit the specific needs of PhotoFootprint. 
+- Within the modal code, in order to fix bug #4 in [TESTING.md](TESTING.md), I needed to add the following code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
+
+### Helpsheets, Documentation and Useful Resources <a name="helpsheets"></a>
+- [React Bootstrap Components](https://react-bootstrap-v4.netlify.app/components/)
+- React Bootstrap - [Modal](https://react-bootstrap-v4.netlify.app/components/modal/) 
+
+### Technology and NPM Packages Used <a name="tech"></a>
+All frontend npm packages can be found [here](https://www.npmjs.com/). I have also linked the direct link of each package as well. 
+#### NPM Packages
+- [React](https://react.dev/learn) - For instant flexible changes to the website.
+- [JWT Decode](https://www.npmjs.com/package/jwt-decode) - For JSON Web Token Decoding - helps support local storage of user refresh tokens.
+- [Axios](https://www.npmjs.com/package/axios) - for handling get requests and response codes to the backend 
+- [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - for handling infinite scroll of the frontend whilst calling on paginated API data
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) - Handling the routing throughout the application
+#### Technologies/Websites supporting the development process
+- [ReactBootstrap](https://react-bootstrap.github.io/) - for quick, simple, responsive styling.
+- [ColorSpace](https://mycolor.space/?hex=%2300A000&sub=1) for color palette design 
+- [Favicon creator](https://favicon.io/favicon-converter/)
+- [Resize pixels](https://www.resizepixel.com/download) - used when resizing logo
+- [Remove background](https://www.remove.bg/upload) in image - used for logo background removal 
+### Media <a name="media-fe"></a>
+- All post images in the base content are from [Unsplash](https://unsplash.com/)
+- Upload icon found on the Add post page and search icon found when no search results appear and on '404 Page Not Found' - [PNG Tree](https://pngtree.com/)
+- Foot Icon in Logo	- [FreePik](https://freepik.com)
+
+## Backend Credits <a name="cred-be"></a>
+PhotoFootprint was inspired and supported by the brilliant walkthrough project conducted by the Team at [CodeInstitute](https://codeinstitute.net/de/). The API built in the *drf-api* walkthrough (linked below in **Code** section) was the perfect grounding for PhotoFootprint to set up from. 
+
+### Code <a name="code-be"></a>
+- Code Institute's [drf-api](https://github.com/Code-Institute-Solutions/drf-api) code was the basis for PhotoFootprint API. [drf-api](https://github.com/Code-Institute-Solutions/drf-api) was the perfect fit for what PhotoFootprint's goal was, so I editted, customised and added models and code to fit the specific needs of PhotoFootprint. 
+
+### Helpsheets, Documentation and Useful Resources <a name="helps-be"></a>
+- [AbstractAPI - Django Send Email](https://www.abstractapi.com/guides/django-send-email): Brilliant helpsheet and tutorial for setting up Django `send_mail()` functionality.
+- [Django send_mail documentation](https://docs.djangoproject.com/en/3.2/topics/email/)
+- [Django REST Auth Documentation](https://dj-rest-auth.readthedocs.io/en/latest/installation.html)
+- [Adding contents table to README file](https://community.atlassian.com/t5/Bitbucket-questions/How-to-write-a-table-of-contents-in-a-Readme-md/qaq-p/673363)
+- [Django Admin Documentation](https://docs.djangoproject.com/en/4.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.readonly_fields) - Read-only fields
+
+### Libraries Used <a name="libs-be"></a>
+- Cloudinary - [`pip install cloudinary==1.34.0`](https://pypi.org/project/cloudinary/) - Cloud based image storage
+- Django Database Url - [`pip install dj-database-url==0.5.0`](https://pypi.org/project/dj-database-url/0.5.0/) - Supporting cloud based database management
+- Django REST Auth - [`pip install dj-rest-auth==2.1.9`](https://pypi.org/project/dj-rest-auth/2.1.9/) - Account authentication for Django REST
+- Django v.3.2 - [`pip install Django==3.2.21`](https://pypi.org/project/Django/3.2.21/) - Django Framework
+- Django AllAuth - [`pip install django-allauth==0.44.0`](https://pypi.org/project/django-allauth/0.44.0/) - Account authorisation 
+- Django Cloudinary Storage - [`pip install django-cloudinary-storage==0.3.0`](https://pypi.org/project/django-cloudinary-storage/) - Supporting Cloudinary Image Storage
+- Django CORS Headers - [`pip install django-cors-headers==4.2.0`](https://pypi.org/project/django-cors-headers/) - Support Cross Origin Resource Sharing
+- Django Filter - [`pip install django-filter==23.3`](https://pypi.org/project/django-filter/) - Filtering database model fields
+- Django REST Framework - [`pip install djangorestframework==3.14.0`](https://pypi.org/project/djangorestframework/) - Django REST Framework for backend data management
+- Django REST Simple JSON Tokens - [`pip install djangorestframework-simplejwt==5.3.0`](https://pypi.org/project/djangorestframework-simplejwt/) - Encryption and decryption of JSON web tokens.
+- Gunicorn - [`pip install gunicorn==21.2.0`](https://pypi.org/project/gunicorn/) - Supporting Deployment to Heroku
+- Pillow - [`pip install Pillow==10.0.1`](https://pypi.org/project/Pillow/) - Supporting image processing 
+- Psycopg2 - [`pip install psycopg2==2.9.7`](https://pypi.org/project/psycopg2/) - Supporting Deployment to Heroku
+
+### Technology <a name="tech-be"></a>
+- [Cloudinary](www.cloudinary.com): For image storage
+- [ElephantSQL](www.elephantsql.com): For database storage and management
+- [Djecrety](https://djecrety.ir/): Django Secret Key Generator
+- [Heroku](https://heroku.com): Heroku hosting platform.
+- [Tiny Img](https://tiny-img.com/webp/) - convert png to webp images for README documentation screenshots.
+
+### Media <a name="media-be"></a>
+- Default Profile and Post images are from [CodeInstitute](https://codeinstitute.net/de/) [drf-api](https://github.com/Code-Institute-Solutions/drf-api) walkthrough learning materials.
 
 # Acknowledgements <a name="acknow"></a>
+This has been a challenging but fun project, to have the support from Alex K, my mentor has been truly wonderful, I am blessed that we get on well as people as well as development colleagues. He would often bring a calming energy that would help me to see clearer in order to problem solve the bugs that were infront of us. My wife, Sabrina has been a saint throughout, giving me the support and occasional boost of confidence that I can achieve this task in the timeframe. I want to offer a huge thank you to Kay at Code Institute, alongwith Tutors Sean and the rest of the team, they've been brilliant in their support. Completing this Coding Course in 5 months shows me that I can code well, and learn quickly, both strong foundations for good quality developer. Code Institute taught me this, so a huge thank you to all the team at Code Institute, they've helped me to change my life direction towards a new career in development. 
+
+# Overall Learning Outcomes <a name="outcomes"></a>
+I have really enjoyed learning React over the past 6 weeks and to have this project at the end of it gives me a real boost in confidence and self belief, that there is so much possible and I am only at the tip of the tip of the iceberg of what React can create. I am excited to learn more and delve deeper into react material after this course has been completed. 
