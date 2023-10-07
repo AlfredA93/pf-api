@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.f85bd1df.chunk.css",
-    "main.js": "/static/js/main.49d16ea4.chunk.js",
-    "main.js.map": "/static/js/main.49d16ea4.chunk.js.map",
+    "main.css": "/static/css/main.e6a174a0.chunk.css",
+    "main.js": "/static/js/main.27831a11.chunk.js",
+    "main.js.map": "/static/js/main.27831a11.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a47a5e1a.js",
     "runtime-main.js.map": "/static/js/runtime-main.a47a5e1a.js.map",
     "static/js/2.b3284d7e.chunk.js": "/static/js/2.b3284d7e.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.21274ee2.chunk.js": "/static/js/3.21274ee2.chunk.js",
     "static/js/3.21274ee2.chunk.js.map": "/static/js/3.21274ee2.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.f85bd1df.chunk.css.map": "/static/css/main.f85bd1df.chunk.css.map",
+    "static/css/main.e6a174a0.chunk.css.map": "/static/css/main.e6a174a0.chunk.css.map",
     "static/js/2.b3284d7e.chunk.js.LICENSE.txt": "/static/js/2.b3284d7e.chunk.js.LICENSE.txt",
     "static/media/pf-logo-2.56d4f315.webp": "/static/media/pf-logo-2.56d4f315.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.a47a5e1a.js",
     "static/js/2.b3284d7e.chunk.js",
-    "static/css/main.f85bd1df.chunk.css",
-    "static/js/main.49d16ea4.chunk.js"
+    "static/css/main.e6a174a0.chunk.css",
+    "static/js/main.27831a11.chunk.js"
   ]
 }
