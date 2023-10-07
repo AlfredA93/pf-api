@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
@@ -30,9 +30,11 @@ const Post = (props) => {
     isPost,
   } = props;
 
+  const [sending, setSending] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -48,6 +50,7 @@ const Post = (props) => {
   };
 
   const handleLike = async () => {
+    setSending(true);
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
       setPosts((prevPosts) => ({
@@ -61,9 +64,11 @@ const Post = (props) => {
     } catch (err) {
       //console.log(err);
     }
+    setSending(false);
   };
 
   const handleUnlike = async () => {
+    setSending(true);
     try {
       await axiosRes.delete(`/likes/${like_id}`);
       setPosts((prevPosts) => ({
@@ -77,9 +82,11 @@ const Post = (props) => {
     } catch (err) {
       //console.log(err);
     }
+    setSending(false);
   };
 
   const handleBookmark = async () => {
+    setSending(true);
     try {
       const { data } = await axiosRes.post("/bookmarks/", { post: id });
       setPosts((prevPosts) => ({
@@ -91,9 +98,11 @@ const Post = (props) => {
     } catch (err) {
       //console.log(err);
     }
+    setSending(false);
   };
 
   const handleUnbookmark = async () => {
+    setSending(true);
     try {
       await axiosRes.delete(`/bookmarks/${bookmark_id}`);
       setPosts((prevPosts) => ({
@@ -105,6 +114,7 @@ const Post = (props) => {
     } catch (err) {
       //console.log(err);
     }
+    setSending(false);
   };
 
   const travelCategory = {
@@ -174,11 +184,11 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={handleUnlike}>
+            <span onClick={sending ? null : handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={handleLike}>
+            <span onClick={sending ? null : handleLike}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
@@ -204,11 +214,11 @@ const Post = (props) => {
               <i className="far fa-bookmark" />
             </OverlayTrigger>
           ) : bookmark_id ? (
-            <span onClick={handleUnbookmark}>
+            <span onClick={sending ? null : handleUnbookmark}>
               <i className={`fas fa-bookmark ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={handleBookmark}>
+            <span onClick={sending ? null : handleBookmark}>
               <i className={`far fa-bookmark ${styles.HeartOutline}`} />
             </span>
           ) : (
