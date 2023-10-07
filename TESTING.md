@@ -194,9 +194,9 @@ The performance score can vary depending on the speed of the API data delivery. 
   - ![InfiniteScroll](/documentation/testing-imgs/bug-cors-infinitescroll.webp)
   - ***Fix 2***: Correct typo in the CLIENT_ORIGIN env.py file - from `https://` to `http://`
 
-- **Problem 3**:  If you repeatedly click very flash on the post button during comment post submission, the comment is posted multiple times.
+- **Problem 3**:  If you repeatedly click very fast on the post button during comment post submission, the comment is posted multiple times.
   - ![Comment Repeat](/documentation/testing-imgs/bug-comment-repeat.webp)
-  - ***Fix 3***: Add a `disabled` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment, Contact Us Modal, Profile Edit, Username Edit, Password Edit pages/components too.
+  - ***Fix 3***: Add a `disabled` prop to the button, assign `disabled` to a state of `sending`, which in turn is switched from `false` to `true` throughout the `handleSubmit` function's operation. This solution was also applied to the Create Post, Edit Post, Edit Comment, Contact Us Modal, Profile Edit, Username Edit, Password Edit, Sign In and Sign Up pages/components too. On the Follow buttons through the ProfileDataContext page I applied the same logic but used `[submitting, setSubmitting]` as its variable, to stop any potential conflicts further down the DOM tree with other buttons that appear on the same page e.g. comment's `post` button. 
 ```JSX
 function CommentCreateForm(props) {
 ...
@@ -227,6 +227,9 @@ const handleSubmit = async (event) => {
 
 - **Problem 4**: Contact Us Modal not closing on the 'cancel' or the 'x' buttons, as demonstrated in the [Bootstrap documentation](https://react-bootstrap-v4.netlify.app/components/modal/).
   - ***Fix 4***: Add this section of code found on [this thread](https://github.com/react-bootstrap/react-bootstrap/issues/3480) - `<div onClick={e => e.stopPropagation()}></div>`
+
+- **Problem 5**:  If you repeatedly click very fast on the like or bookmark icons, 404 errors can occur in the console due to the frontend sending multiple post requests to the API before the first initial post has been processed by the API.
+  - ***Fix 5***: Add a sending logic, similar to Fix #3 but using a ternary phrase instead of a disabled attribute. This means that the button doesn't send any more post requests until API has finished processing the first.
 
 ## Responsiveness <a name="responsive"></a>
 This application is responsive to screens from small (iPhone SE) to large screens (Desktop Screens)
